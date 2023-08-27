@@ -1,0 +1,37 @@
+Block
+Sender Nothing
+Receiver b
+Coin 100
+Sender b
+Receiver d
+Coin 80
+Sender b
+Receiver a
+Coin 10
+Sender b
+Receiver c
+Coin 10
+Block
+Sender Nothing
+Receiver b
+Coin 100
+Sender a
+Receiver c
+Coin 10
+Block
+Sender Nothing
+Receiver c
+Coin 100
+Sender b
+Receiver a
+Coin 10
+Sender b
+Receiver c
+Coin 20
+Sender b
+Receiver d
+Coin 70
+Block
+Sender Nothing
+Receiver b
+Coin 100

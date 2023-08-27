@@ -1,0 +1,5 @@
+Postech 0 0
+Idong 0 4
+CityHall 3 4
+PohangStation 1 9
+PohangAirport 6 8

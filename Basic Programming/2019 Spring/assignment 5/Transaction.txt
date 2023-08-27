@@ -1,0 +1,7 @@
+Transaction
+Sender c
+Receiver b
+Coin 30
+Sender c
+Receiver a
+Coin 10

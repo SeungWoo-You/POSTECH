@@ -1,0 +1,12 @@
+\section{Conclusion}
+	This article analyzed the Black-Scholes model in analytic and numerical ways. Just Euler method is used for $t$ coordinate, so applying another ODE solving skills such as Runge-Kutta good for next project. From the Comparision section, it seems that spline method is more exact than midpoint formula. However, it should solve the $N+1$ system of equations for just one fixed time, so has exorbitant time complexity if $M$ is large. In addition, this method looks like very unstable. The stability and convergence conditions are not found in here, but in test, spline is more unstable than midpoint. Presumably, a huge $t$-step is required to slightly increase the $s$-step. Also, spline and interpolation does not guarantee that they converge to exact function. The global error does not decrease as $t\rightarrow T$. Hence, it seems that spline method is not suitable for large $N$ and $M$. However, It has been shown that appropriate polynomials can have good approximations. So further research needs to focus on finding proper polynomials such as orthogonal or Laguerre, and checking
+	stable conditions of each method.\\
+\section*{Reference}
+	\begin{enumerate}
+		\item Fisher, R. (2021). Comparing Numerical Solution Methods for the Cahn-Hilliard Equation.\\doi:10.1137/20S1357974.
+		\item Jiawei He. (2021). A Study on Analytical and Numerical Solutions of Three
+		Types of Black-Scholes Models. \textit{International Journal of Trade, Economics and Finance}(vol.12, 4). 109-114.\\doi:10.18178/ijtef.2021.12.4.703
+		\item Nurul Anwar, M. and Sazzad Andallah, L. (2018). A Study on Numerical Solution of Black-Scholes Model. \textit{Journal of Mathematical Finance, 8}, 372-381. doi:10.4236/jmf.2018.82024.
+		\item Richard L. Burden, J. Douglas Faires, and Annette M. Burden. (2015). \textit{Numerical Analysis}(10th ed.). Boston: Cengage Learning.
+		\item Stein, Elias M. and Shakarchi, Rami. (2003). \textit{Fourier Analysis: an introduction}. NJ: Princeton University Press.
+	\end{enumerate}

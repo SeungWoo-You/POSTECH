@@ -1,0 +1,34 @@
+\section{Analytic Solution}
+	Guess the form of $V(s,t)$. Suppose $V(s,t) = e^{ax+b\tau}U(x,\tau)$, where $x=\ln s,\ \tau = \frac{\sigma^2}{2}(T-t),\ a = \frac{1}{2}-\frac{r}{\sigma^2},$ and $b=-(\frac{1}{2}+\frac{r}{\sigma^2})^2$. Let the final boundary condition $V(s,T) = F(s)$. Then
+	\begin{align*}
+		\firstpartial{V}{t} &= -\frac{\sigma^2}{2}\left(be^{ax+b\tau}U + e^{ax+b\tau}\firstpartial{U}{\tau}\right), \\
+		\firstpartial{V}{s} &= ae^{ax+b\tau}U + e^{ax+b\tau}\firstpartial{U}{x},\\
+		\highpartial{2}{V}{s} &= a(a-1)e^{a(x-2)+b\tau}U + (2a-1)e^{a(x-2)+b\tau}\firstpartial{U}{x} + e^{a(x-2)+b\tau}\highpartial{2}{U}{x}.
+	\end{align*}
+	Replacing $s$ by $e^x$ and canceling out $e^{ax+b\tau}$, then the equation is changed as
+	\begin{align*}
+		&-\frac{\sigma^2}{2}\left(bU+\firstpartial{U}{\tau}\right) + ra\left(U+\firstpartial{U}{x}\right) + \frac{\sigma^2}{2} \left(a(a-1)U+(2a-1)\firstpartial{U}{x}+\highpartial{2}{U}{x}\right) - rU = 0\\
+		\Rightarrow & \frac{\sigma^2}{2}\highpartial{2}{U}{x} + \left(r+\frac{\sigma^2}{2}(2a-1)\right)\firstpartial{U}{x} + \left(-\frac{\sigma^2}{2}b+ra+\frac{\sigma^2}{2}a(a-1)-r\right)U = \frac{\sigma^2}{2}\firstpartial{U}{\tau}\\
+		\Rightarrow & \highpartial{2}{U}{x} = \firstpartial{U}{\tau}, \mbox{ because } \ r+\frac{\sigma^2}{2}(2a-1) = 0 \mbox{ and } -\frac{\sigma^2}{2}b+ra+\frac{\sigma^2}{2}a(a-1)-r = 0.
+	\end{align*}
+	The initial condition is
+	\begin{align*}
+		& F(s) = e^{ax}U(x,0)\\
+		\Rightarrow & U(x,0) = e^{-ax}F(s) = e^{-ax}F(e^x).
+	\end{align*}
+	The model is given as following:
+	\begin{equation*}
+		\firstpartial{U}{\tau} = \highpartial{2}{U}{x}, \qquad -\infty < x < \infty,\ 0 < \tau < \frac{\sigma^2}{2}T.
+	\end{equation*}
+	This is the same as one-dimensional heat equation. The solution of heat equation is already known, so it can be solved. The general solution is 
+	\begin{equation*}
+		V(s,t) = \frac{e^{r(T-t)}}{\sigma\sqrt{2\pi(T-t)}}\int_{0}^{\infty} e^{-\frac{\left(ln(s/x)+(r-\sigma^2/2)(T-t)\right)^2}{2\sigma^2(T-t)}}F(x) \frac{dx}{x}.
+	\end{equation*}
+	For the given initial condition(i.e. for the call option case),
+	\begin{align*}
+		V(s,t) &= \frac{e^{r(T-t)}}{\sigma\sqrt{2\pi(T-t)}}\int_{k}^{\infty} e^{-\frac{\left(\ln(s/x)+(r-\sigma^2/2)(T-t)\right)^2}{2\sigma^2(T-t)}}(x-k) \frac{dx}{x}\\
+		&= \frac{e^{r(T-t)}}{\sigma\sqrt{2\pi(T-t)}}\int_{\ln k}^{\infty} e^{-\frac{\left(-u+\ln s+(r-\sigma^2/2)(T-t)\right)^2}{2\sigma^2(T-t)}}(e^u-k) du\\
+		&= s\frac{1}{\sqrt{2\pi}}\int_{-\frac{\ln\frac{s}{k}+\left(r+\frac{1}{2}\sigma^2\right)(T-t)}{\sigma\sqrt{T-t}}}^{\infty}e^{-\frac{1}{2}x_1^2}dx_1 - ke^{-r(T-t)}\frac{1}{\sqrt{2\pi}}\int_{-\frac{\ln\frac{s}{k}+\left(r-\frac{1}{2}\sigma^2\right)(T-t)}{\sigma\sqrt{T-t}}}^{\infty}e^{-\frac{1}{2}x_2^2}dx_2\\
+		&= s\Phi(d_1)-ke^{-r(T-t)}\Phi(d_2),
+		\end{align*}
+		where $d_1 = \frac{\ln\frac{s}{k}+\left(r+\frac{1}{2}\sigma^2\right)(T-t)}{\sigma\sqrt{T-t}}, d_2 = \frac{\ln\frac{s}{k}+\left(r-\frac{1}{2}\sigma^2\right)(T-t)}{\sigma\sqrt{T-t}} = d_1-\sigma\sqrt{T-t},$ and $\Phi(x)$ is a cumulative distribution function of a standard normal distribution.

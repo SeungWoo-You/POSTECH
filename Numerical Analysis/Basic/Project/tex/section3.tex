@@ -1,0 +1,143 @@
+\section{Numerical Solution}
+	For most cases, it is difficult to obtain differential equation directly. Therefore, approximation is needed for the PDE as a function with respected to $s$ for each fixed $t$ to use the ODE numerical solution. First, define $\tau = T-t$. Then the PDE is 
+	\begin{equation}
+		\firstpartial{V}{\tau}=rs\firstpartial{V}{s} + \frac{1}{2}\sigma^2s^2\highpartial{2}{V}{s}-rV, \qquad 0 < s < \infty,\ 0 < \tau < T, \label{origin}
+	\end{equation}
+	with the initial condition
+	\begin{equation*}
+		V(s,0) =
+		\begin{cases}
+			s-k & \mbox{if } s \ge k \\
+			0 & \mbox{if } s < k.
+		\end{cases}
+	\end{equation*}
+	Assume that $s$ is bounded by $S$: $0<s<S$. Set new boundary conditions:
+	\begin{align*}
+		V(0,\tau) &= 0,\\
+		V(S,\tau) &\simeq S.
+	\end{align*}
+	Let $W(s,\tau)$ be a numerical solution. Take finite point $(s_i, \tau_j)$, $i=0,1,2,\dots,N$, $j=0,1,2,\dots,M$, and let $W(s_i,\tau_j) = W_{i,j}$. To get each $W_{i,j}$, derive the approximation form with respect to $s$ at first by applying some formulae to given $V(s,\tau_j)$ for fixed $\tau$. Then a numerical function $W(s,\tau_j)$ for fixed $j$ is found, so the PDE turn into ODE with respect to $\tau$. Next, take appropriate method to the ODE. This implies all numerical soultions are found because next numerical function $W(s,\tau_{j+1})$ comes out from the previous numerical function $W(s,\tau_j)$. In this section, just apply Euler's method.\\
+	Take the uniform grid $ds = l$ and $d\tau = h$. Introduce the set of points $s_i = il$ for $i=0,1,2,\dots,N$, and $\tau_j = jh$ for $j=0,1,2,\dots,M$. Then $s_N = Nl = S$, $\tau_M = Mh = T$. Consider the solution for the constant $k=50$, $r=0.12$, $\sigma=0.09$, $S=150$, $T=1$, $N=300$, $M=8000$, so that $l=0.5$, $h=0.000125$.\\
+	
+	\subsection{Midpoint Formula}
+		For the uniform grid, each partial derivative can be approximated as
+		\begin{align*}
+			\firstpartial{V}{s}(s_i,\tau_j) &\simeq \frac{W_{i+1,j}-W_{i-1,j}}{2l},\\
+			\highpartial{2}{V}{s}(s_i,\tau_j) &\simeq \frac{W_{i+1,j}-2W_{i,j}+W_{i-1,j}}{l^2}
+		\end{align*}
+		by the mid-point formula. Plugging that into PDE$^\eqref{origin}$ gives ODE with respected to $\tau$:
+		\begin{equation}
+				\firstpartial{V}{\tau}(s_i,\tau_{j+1}) \simeq \firstpartial{W}{\tau}(s_i,\tau_{j+1}) = rs_i\frac{W_{i+1,j}-W_{i-1,j}}{2l} + \frac{1}{2}\sigma^2s_i^2\frac{W_{i+1,j}-2W_{i,j}+W_{i-1,j}}{l^2} -rW_{i,j},\label{f}
+		\end{equation}
+		with the initial and boundary conditions
+		\begin{equation}
+			\begin{aligned}
+				W(s,0) &=
+				\begin{cases}
+					s-k & \mbox{if } s \ge k \\
+					0 & \mbox{if } s < k,
+				\end{cases}\\
+				W(0,\tau) &= 0,\\
+				W(S,\tau) &= \frac{W_{N-1}-W_{N-2}}{l}\left(S - (N-1)l\right) +W_{N-1}\\
+				&= 2W_{N-1}-W_{N-2}.\label{initials}
+			\end{aligned}
+		\end{equation}
+		Linear interpolation is applied to $W(S,\tau)$. Let the RHS of $\eqref{f}$ be $f_{i,j} = f(W_{i,j})$. Note that $f_{i,j}$ contains the term $W_{i+1,j}$ and $W_{i-1,j}$. This can be solved by the Euler's method:
+		\begin{align*}
+			W_{i,0} &= 0,\\
+			W_{i,j+1} &= W_{i,j} + hf_{i,j},\qquad \mbox{for } i=1,2,\dots,N-1.
+		\end{align*}
+		Figure~\ref{mid} is the solution of midpoint formula produced by Python. Consider the plot between $s=35$ and $s=65$, which interval contains the conspicuously changing slope. It shows the stock price with different remaining time.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.7]{Project_numerical_midpoint.png}
+			\caption{numerical solution of midpoint formula}\label{mid}
+		\end{figure}\\
+		
+		\begin{comment}
+		\subsubsection{Euler's Method}
+			The Euler's method for each $j=0,1,\dots,M-1$ is given as
+			\begin{align*}
+				W_{i,0} &= 0,\\
+				W_{i,j+1} &= W_{i,j} + hf_{i,j},\qquad \mbox{for } i=1,2,\dots,N-1.
+			\end{align*}
+			///////figure1///////// is the numerical solution of Euler's method produced by Python. ///////figure1///////// shows the stock price at each time. ///////figure2////////// is the analytic solution. Each result has the same color as ///////////figure1////////////.\\
+			//////////////////figure1////////////////////\\
+			//////////////////figure2////////////////////\\
+			
+		\subsubsection{Runge-Kutta method}
+			Although there are many methods to control the error of Runge-Kutta, mid-point method is taken for all numerical solution after that. Denote the Runge-Kutta method of order 2 is RK2. In this section, RK2, RK3, and RK4 are applied to get the numerical solution. The RK2 is given as
+			\begin{align*}
+				W_{i,0} &= 0,\\
+				K_1 &= f(W_{i,j}),\\
+				K_2 &= f(W_{i,j}+\frac{h}{2}K_1),\\
+				W_{i,j+1} &= W_{i,j} + hK_2,\qquad \mbox{for } i=1,2,\dots,N-1.
+			\end{align*}
+			The RK3 is
+			\begin{align*}
+				W_{i,0} &= 0,\\
+				K_1 &= f(W_{i,j}),\\
+				K_2 &= f(W_{i,j}+hK_1),\\
+				K_3 &= f(W_{i,j}+\frac{h}{2}\frac{K_1+K_2}{2}),\\
+				W_{i,j+1} &= W_{i,j} + \frac{h}{6}(K_1 + K_2 + 4K_3),\qquad \mbox{for } i=1,2,\dots,N-1.
+			\end{align*}
+			The RK4 is
+			\begin{align*}
+				W_{i,0} &= 0,\\
+				K_1 &= f(W_{i,j}),\\
+				K_2 &= f(W_{i,j}+\frac{h}{2}K_1),\\
+				K_3 &= f(W_{i,j}+\frac{h}{2}K_2),\\
+				K_4 &= f(W_{i,j}+hK_3),\\
+				W_{i,j+1} &= W_{i,j} + \frac{h}{6}(K_1 + 2K_2 + 2K_3 + K_4),\qquad \mbox{for } i=1,2,\dots,N-1.
+			\end{align*}
+			Each result is /////figure3//////figure4//////figure5///, can be compared by the exact solution ///figure2///.\\
+			////figure3,4,5///\\
+	\end{comment}		
+	\subsection{Cubic Spline}
+		Now introduce a new method to derive the approximation form: using cubic spline. Interpolating given data set $V(s_i,\tau_j)$ for fixed $j$.  Let $P_{i,j}(s)$ is a cubic polynomial on the subinterval $[s_i,s_{i+1}]$ for each $i=0,1,\dots,N-1$ and given $j$. Suppose $P^\prime_{0,j}(s_0) = 0$, $P^\prime_{N-1,j}(s_N) = 1$, and $P^{\prime\prime}_{0,j}(s_0) = 0$, $P^{\prime\prime}_{N-1,j}(s_N) = 0$, so that it has natural boundary. For the uniform grid, $P_i(s)$ is given as
+		\begin{align*}
+			P_{i,j}(s) &= a_{i,j} + b_{i,j}(s-s_i) + c_{i,j}(s-s_i)^2 + d_{i,j}(s-s_i)^3,\\
+			a_{i,j} &= V(s_i,\tau_j),\\
+			b_{i,j} &= \frac{1}{l}(a_{i+1,j}-a_{i,j}) - \frac{l}{3}(2c_{i,j}+c_{i+1,j}),\\
+			d_{i,j} &= \frac{1}{3l}(c_{i+1,j}-c_{i,j}),\\
+			lc_{i-1,j}&+4lc_{i,j}+lc_{i+1,j} = \frac{3}{l}(a_{i+1,j}-2a_{i,j}+a_{i-1,j})
+		\end{align*}
+		by the definition of spline. Under natural boundary, above linear system equations of $c_i$ produce vector equation $\mathbf{A}\vec{\mathbf{c}}=\vec{\mathbf{z}}$,
+		\begin{align*}
+			\mathbf{A} &= \begin{bmatrix}
+				1 & 0 & 0 & \cdots & \cdots & 0 \\
+				l & 4l & l & \ddots& \ & \vdots \\
+				0 & l & 4l & l & \ddots &\vdots \\
+				\vdots & \ddots & \ddots & \ddots & \ddots  & 0 \\
+				\vdots & \ & \ddots & l & 4l & l \\
+				0 & \cdots  & \cdots & 0 & 0 & 1 
+			\end{bmatrix}_{(N+1)\times(N+1)}\\
+			\vec{\mathbf{z}} & = \frac{3}{l}\begin{bmatrix}
+				0\\
+				a_{2,j}-2a_{1,j}+a_{0,j}\\
+				a_3-2a_{2,j}+a_{1,j}\\
+				\vdots\\
+				a_{N,j}-2a_{N-1,j}+a_{N-2,j}\\
+				0\\
+			\end{bmatrix}\quad\mbox{ and }\quad
+			\vec{\mathbf{c}}= \begin{bmatrix}
+				c_{0,j}\\
+				c_{1,j}\\
+				c_{2,j}\\
+				\vdots\\
+				c_{N-1,j}\\
+				c_{N,j}\\
+			\end{bmatrix}.
+		\end{align*}
+		Since $\mathbf{A}$ is strictly diagonally dominant, $\det{\mathbf{A}\neq0}$. Therefore, $\vec{\mathbf{c}}$ is determined uniquely, also each $P_{i,j}$ is produced. Since it is approximation of $V(s,\tau_j)$ on $[s_i,s_{i+1}]$, $\firstpartial{V}{s} \simeq \frac{dP_i}{ds}$ and $\highpartial{2}{V}{s} \simeq \frac{d^2P_i}{ds^2}$ on $[s_i,s_{i+1}]$. Plugging that into PDE$^\eqref{origin}$ gives ODE with respected to $\tau$:
+		\begin{equation*}
+			\firstpartial{V}{\tau}(s_i, \tau_{j+1}) \simeq \firstpartial{W}{\tau}(s_i, \tau_{j+1}) = rs_i(b_{i,j}) + \frac{1}{2}\sigma^2s_i^2(2c_{i,j})-rW_{i,j},\label{g}
+		\end{equation*}
+		with the same initial and boundary conditions$^\eqref{initials}$. Then each $W_{i,j}$ can be obatined by applying the same algorithm in the midpoint formula. Here is the result.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.7]{Project_numerical_spline.png}
+			\caption{numerical solution of spline}\label{spline}
+		\end{figure}
+			
+			

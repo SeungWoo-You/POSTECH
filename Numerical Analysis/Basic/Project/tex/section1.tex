@@ -1,0 +1,14 @@
+\section{Introduction}
+	Black-Scholes model is given second PDE as following:
+	\begin{equation*}
+		\firstpartial{V}{t}+rs\firstpartial{V}{s} + \frac{1}{2}\sigma^2s^2\highpartial{2}{V}{s}-rV=0, \qquad 0 < s < \infty,\ 0 < t < T.
+	\end{equation*}
+	$V(s,t)$ is a soulution of the equation which is the price of an option with respected to stock price and time in years. $r$ and $\sigma$ is constant, risk-free interest rate and voltility each. There are many option conditions to satisfy this, but just consider a call option. For the stock price $s$ and the strike price constant $k$, the final price of a call option is determined by them. If $s<k$, then the value of an option is lost, otherwise it will have the value of $s-k$. So the final boundary condition is given as
+	\begin{equation*}
+		V(s,T) =
+		\begin{cases}
+			s-k & \mbox{if } s \ge k \\
+			0 & \mbox{if } s < k.
+		\end{cases}
+	\end{equation*}
+	This model contains simple boundary condition but PDE looks complicated second order. However, it can turn into one-dimensional heat equation. Therefore the model can be solved analytically. The numerical solution can be applied to both changed and original forms, and different method can be taken each $s$ and $t$ coordinates. Although $s$ can increase infinitely, but it sufficies to take three or four times of $k$. Hence set the boundary $3k \leq S \leq 4k$ for numeircal calculation.
