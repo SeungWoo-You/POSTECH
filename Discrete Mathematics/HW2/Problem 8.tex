@@ -1,0 +1,15 @@
+\section*{Problem 8}
+\begin{enumerate} [(a)]
+	\item
+	\begin{proof} [solution]
+		Let $P(n) = 2\lg{n} + 4n + 3n\lg{n}$. Since $0 + 0 + 3n\lg{n} \leq P(n)$ for $n \geq 1$, $P(n) = \Omega(n\lg{n})$. Since $P(n) \leq 2n\lg{n} + 4n\lg{n} + 3n\lg{n} = 9n\lg{n}$ for $n \geq 2$, $P(n) = O(n\lg{n})$. Therefore, $P(n) = \Theta(n\lg{n})$.\\
+	\end{proof}
+	\item 
+	\begin{proof} [solution]
+		Let $P(n) = \frac{(n^2 + \lg{n})(n + 1)}{n + n^2}$ Note that $P(n) = \frac{n^2 + \lg{n}}{n} = n + \frac{\lg{n}}{n}$ for $n \geq 1$. Since $n + 0 \leq P(n)$ for $n \geq 1$, $P(n) = \Omega(n)$. Since $\lg{n} \leq n^2$ for $n \geq 1$ (you don\textquotesingle t have to prove this, but you can do by using induction! Try it.), $P(n) \leq n + \frac{n^2}{n} = n + n = 2n$ for $n \geq 1$, so $P(n) = O(n)$. Therefore, $P(n) = \Theta(n)$.\\
+	\end{proof}
+	\item 
+	\begin{proof} [solution]
+		Let $P(n) = 2 + 4 + 8 + 16 + \cdots + 2^n$. Note that $P(n) = \sum\limits_{i = 1}^{n}{2^i} = \frac{2(2^n  - 1)}{2 - 1} = 2^{n + 1} - 2$. Since $2 \leq 2^n$ for $n \geq 1$, $P(n) \geq 2\cdot2^n - 2^n = 2^n$ for $n \geq 1$, so $P(n) = \Omega(2^n)$. Since $P(n) \geq 2\cdot2^n + 0$, $P(n) = O(2^n)$. Therefore, $P(n) = \Theta(2^n)$.\\
+	\end{proof}
+\end{enumerate}

@@ -1,0 +1,27 @@
+\section*{Problem 1}
+\begin{proof}
+	Proof by strong induction. For $P(j)$, consider $j = 1$. Then since $\frac{1}{b} < 1 \leq \sqrt{2}$ for $^\forall b \in \mathbb{Z^+}$, $\sqrt{2} \neq \frac{1}{b}$ for $^\forall b \in \mathbb{Z^+}$. So $j = 1$ is true.\\
+	Suppose $j = 1, 2, \cdots, n$ is true. Consider $j = n + 1$. We use contradiction. i.e. assume that:
+	\begin{align}
+		P(j) \text{ is true  for } j = 1, 2, \cdots, n \Rightarrow\ P(n + 1) \text{ is false.} \label{eq}
+	\end{align}
+	It follows
+	\begin{align*}
+		&P(n + 1) \text{ is false.}\\
+		&\Rightarrow \sqrt{2} = \frac{n + 1}{b} \text{ for some } b \in \mathbb{Z^+}\\
+		&\Rightarrow 2b^2 = (n + 1)^2 \text{ for some } b \in \mathbb{Z^+}\\
+		&\Rightarrow (n + 1)^2 \text{ is divisible by } 2\\
+		&\Rightarrow n + 1 \text{ is divisible by } 2\\
+		&\Rightarrow n + 1 = 2t \text{ for some } t \in \mathbb{Z^+}\\
+		&\Rightarrow 2b^2 = 4t^2 \text{ for some } b, t \in \mathbb{Z^+}\\
+		&\Rightarrow b^2 = 2t^2 \text{ for some } b, t \in \mathbb{Z^+}\\
+		&\Rightarrow b^2 \text{ is divisible by } 2\\
+		&\Rightarrow b \text{ is divisible by } 2\\
+		&\Rightarrow b = 2s \text{ for some } s \in \mathbb{Z^+}\\
+		&\Rightarrow \sqrt{2} = \frac{n + 1}{b} = \frac{2t}{2s} = \frac{t}{s} \text{ for some } b, t, s \in \mathbb{Z^+}.
+	\end{align*}
+	Since $n + 1 = 2t$, $t = \frac{n + 1}{2} \leq n$ is true for $^\forall n \in \mathbb{Z^+}$. But it contradicts to the assumption (\ref{eq}). This implies the following:
+	\begin{align*}
+		P(j) \text{ is true  for } j = 1, 2, \cdots, n \Rightarrow\ P(n + 1) \text{ is true.}
+	\end{align*}
+\end{proof}
