@@ -1,0 +1,6 @@
+\section*{Problem 3}
+\begin{proof}
+	Proof by induction. Let $P(k) = $ every $2^k\times2^k$ checkerboard with one square removed can be tiled
+	using right trominoes. Consider $k = 1$. Then it is easy to check that $P(1)$ is true(note that you need to write down the reason briefly).\\
+	Suppose $k = n$ is true, consider $k = n + 1$. Then $2^{n + 1}\times2^{n + 1}$ checkerboard can be divided into 4 $2^n\times2^n$ checkerboards. Since $P(n)$ is true, we can fill $2^n\times2^n$ checkerboards with right tromino except only one tile per each. It means there exists 4 tiles in total.Then we can gather them in $2\times2$ place(For example, for each $2^n\times2^n$ checkerboards, place remained tile in the corner so that it is in the center of the $2^{n + 1}\times2^{n + 1}$ checkerboard). Then just put a right tromino in that place.\\
+\end{proof}

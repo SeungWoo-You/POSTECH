@@ -1,0 +1,18 @@
+\section*{Problem 7}
+	Note that you must clearly explain the following:
+	\begin{itemize}
+		\item the strategy
+		\item the remained shape at a specific turn
+		\item the starter at that turn
+	\end{itemize}
+\begin{enumerate} [(a)]
+	\item 
+		\begin{proof}
+			The strategy is select bottom-right $(n-1)\times(n-1)$ tiles at the first turn. Then only remain $(n-1)\times1$ or $1\times(n-1)$ tiles. If the opponent selects sub(or full) piece of one of them, then pick the same amount tiles from the other. Proof this by strong induction. Note that this strategy is clearly true if $n = 2$.\\
+			Consider $n = 2, 3, \cdots, N$ is true, consider $n = N + 1$. Since the remained shape after $k$ turn($k$ is odd bigger than 1. i.e. start the opponent\textquotesingle s turn) is the same as the after of the first turn(i.e. start the opponent\textquotesingle s turn) of one of $i\times i$ board$(2 \leq i \leq N)$.\\
+		\end{proof}
+	\item 
+		\begin{proof}
+			The strategy is select bottom-right $1\times1$ tile at the first turn. Then the opponent can only choose $1\times k$ tiles$(1 \leq k \leq n - 1)$ from upper or lower. If the opponent picks one, then just pick the same amount from the other. This is proved by strong induction similarly.\\
+		\end{proof}
+\end{enumerate}

@@ -1,0 +1,12 @@
+\section*{Problem 2}
+	The SIR model is the following system of quadratic ODEs:
+	\begin{align}
+		\frac{dS}{dt} &= -\beta SI, \label{eq1}\\
+		\frac{dI}{dt} &= \beta SI - \nu I, \label{eq2}\\
+		\frac{dR}{dt} &= -\nu I, \label{eq3}
+	\end{align}
+	where the disease transmission rate $\beta > 0$ and the recovery rate $\nu > 0$ (or in other words, the duration of infection $D = 1/\nu$).
+	
+	The bi-linear incidence term $\beta\ S\ I$ for the number of new infected individuals per unit time corresponds to homogeneous mixing of the infected and susceptible classes. The total population size should remain constant, and this easily follows from the SIR system: that the sum of the left hand sides of the three equations is the derivative of the total population size by sum of the right hand sides is zero. We denote the total population size by $N$. Since $R(t) = N - S(t) - I(t)$, the system can be reduced to a system of two ODEs: (\ref{eq1}) and (\ref{eq2}).
+	
+	Suppose that each infected individual has $\kappa$ contacts (each sufficient for transmission) per unit time and $\kappa$ is independent of the population size. Then $\kappa\ S/N$ of these contacts are with susceptible individuals. If the fraction $\tau$ of adequate contacts result in trasmission, then each infected individual infects $\kappa\tau\ S/N$ susceptible individuals per unit time. Thus $\beta = b/N$ where $b = \kappa\tau$. The parameter $\tau$ is called the \textit{transmissibility} of the infectious disease.

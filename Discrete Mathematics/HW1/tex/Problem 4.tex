@@ -1,0 +1,15 @@
+\section*{Problem 4}
+\begin{proof}
+	It is called $\textit{Helly\textquotesingle s theorem}$.\\
+	Proof by induction. We show that $\bigcap\limits_{i=1}^{k} X_i\neq\emptyset$ for given condition. Consider $k = 4$. Define $a_i$ be a common point which not include $X_i$. Then there exist two cases( This is called $\textit{Radon\textquotesingle s theorem on Convex Set}$. You can skip this if you explain the theorem well).\\
+	\begin{enumerate} [i)]
+		\item If some $a_i$ make triangle, then WOLG, $a_1$ in $\triangle a_2a_3a_4$. Note that $a_2, a_3, a_4 \in X_1$ Since $a_1$ in $\triangle a_2a_3a_4$, $a_1$ should in $X_1$ by the convexity of $X_1$. Since $a_1 \in X_2, X_3, X_4$, $a_1$ is a common point of $^\forall X_i$.
+		\item If they make a rectangle, then WOLG, let order as $\square a_1a_2a_3a_4$. Consider diagoals $\overline{a_1a_3}$ and $\overline{a_2a_4}$. They intersect in a point $p$. Since $p \in \overline{a_1a_3}$ and $p \in \overline{a_2a_4}$ and all $X_i$ are convex, $p \in X_i$ for $^\forall i$.
+	\end{enumerate}
+	Therefore, $k = 4$ is true.\\
+	Suppose $k = n$ is true, consider $k = n + 1$. Consider subset $Y_m = X_m \cap X_{n+1}, m = 1, 2, \cdots, n$. By the \textit{intersection property}: intersection of convex sets is convex, $Y_m$ is convex. Choose any $Y_p, Y_q, Y_r$. Then
+	\begin{align*}
+		Y_p \cap Y_q \cap Y_r &= X_p \cap X_q \cap X_r \cap X_{n + 1}
+	\end{align*}
+	Since $k = 4$ is true, $Y_p \cap Y_q \cap Y_r \neq \emptyset$. This means that since $k = n$ is true for any convex sets $X_i, i=1, 2, \cdots, n$, apply this for $Y_m$ instead $X_i$, then we get $\bigcap\limits_{m=1}^{n}Y_m\neq\emptyset$. Since $\bigcap\limits_{m=1}^{n}Y_m = \bigcap\limits_{i=1}^{n}X_i$, the proof is done.\\
+\end{proof}

@@ -1,0 +1,30 @@
+\section*{Problem 1}
+	\begin{proof} [Solution]
+		Just write down True-False table and check whether all result is true or not.
+		Note that the following:
+		\begin{center}
+			\setlength{\tabcolsep}{20pt}
+			\renewcommand{\arraystretch}{1.4}
+			\begin{tabular}{c|c|c}
+				$p$ & $q$ & $p \rightarrow q$ \\ \hline
+				T   & T   & T                 \\
+				T   & F   & F                 \\
+				F   & T   & T                 \\
+				F   & F   & T                 \\
+			\end{tabular}
+		\end{center}
+		For example, in (a): $\left(\left(p \rightarrow q\right)\wedge\neg q\right) \rightarrow \neg p$,
+		\begin{center}
+			\setlength{\tabcolsep}{20pt}
+			\renewcommand{\arraystretch}{1.4}
+			\begin{tabular}{c|c|c|c|c|c|c}
+				$p$ & $q$ & $p \rightarrow q$ & $\neg q$ & $\left(p \rightarrow q\right)\wedge\neg q$ & $\neg p$ & $\left(\left(p \rightarrow q\right)\wedge\neg q\right) \rightarrow \neg p$ \\ \hline
+				T & T & T                 & F     & F    & F     & T   \\
+				T & F & F                 & T     & F    & F     & T   \\
+				F & T & T                 & F     & F    & T     & T   \\
+				F & F & T                 & T     & T    & T     & T   \\
+			\end{tabular}
+		\end{center}
+		Therefore, (a) is a tautology.\\
+	\end{proof}
+	

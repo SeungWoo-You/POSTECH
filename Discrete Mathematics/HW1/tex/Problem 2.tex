@@ -1,0 +1,32 @@
+\section*{Problem 2}
+	\begin{enumerate} [(a)]
+		\item
+			\begin{proof}
+				Proof by induction. Consider $j = 1$. Then $H_{2} = 1 + \frac{1}{2} \geq 1 + \frac{1}{2}$ is clearly true.\\
+				Suppose $j = n$ is true, consider $j = n + 1$. Then
+				\begin{align*}
+					H_{2^{n + 1}} &= H_{2^n} + \sum\limits_{i=1}^{2^n} \frac{1}{2^n + i}\\
+					&\geq 1 + \frac{n}{2} + \sum\limits_{i=1}^{2^n} \frac{1}{2^n + i}
+				\end{align*}
+				If we show $\sum\limits_{i=1}^{2^n} \frac{1}{2^n + i} \geq \frac{1}{2}$, then the proof is done. Note that $\frac{1}{2^n + i} \geq \frac{1}{2^n\cdot 2}$ for $1 \leq i \leq 2^n$.
+				\begin{align*}
+					\sum\limits_{i=1}^{2^n} \frac{1}{2^n + i} &\geq \sum\limits_{i=1}^{2^n} \frac{1}{2^n\cdot2}\\
+					&= 2^n\cdot\frac{1}{2^n\cdot 2}\\
+					&= \frac{1}{2}
+				\end{align*}
+			\end{proof}
+		\item 
+			\begin{proof}
+				Proof by induction. Let $P(j) = 7^{j + 2} + 8^{2j + 1}$. Consider $j = 1$. Then $7^{1 + 2} + 8^{2\cdot1 + 1} = 343 + 512 = 855 = 15\cdot57$ is clearly true.\\
+				Suppose $j = n$ is true, consider $j = n + 1$. Then
+				\begin{align*}
+					P(n + 1) &= 7^{(n + 1) + 2} + 8^{2(n + 1) + 1}\\
+					&= 7\cdot7^{n + 2} + 8^2\cdot8^{2n + 1}\\
+					&= 7\cdot7^{n + 2} + 8^2\cdot8^{2n + 1} + 7\cdot8^{2n + 1} - 7\cdot8^{2n + 1}\\
+					&= 7\cdot(7^{n + 2} + 8^{2n + 1}) + (8^2 - 7)\cdot8^{2n + 1}\\
+					&= 7\cdot P(n) + 57\cdot8^{2n + 1}
+				\end{align*}
+				Since $P(n)$ is divisible by 57, the proof is done.\\
+			\end{proof}
+	\end{enumerate}
+	

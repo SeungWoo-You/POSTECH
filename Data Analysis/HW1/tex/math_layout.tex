@@ -1,0 +1,13 @@
+\newcommand{\limit}[3]{\lim_{#1 \to #2} #3}
+\newcommand{\firstpartial}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\highpartial}[3]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+
+
+\newenvironment{solution}
+{\renewcommand\qedsymbol{$\blacksquare$}
+	\begin{proof}[Solution]}
+	{\end{proof}}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}
+\newtheorem{prop}{Proposition}
