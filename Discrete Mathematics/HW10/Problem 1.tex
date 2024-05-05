@@ -1,0 +1,6 @@
+\section*{Problem 1}
+	\begin{proof}
+		Proof by induction. Let $P(j)$ be the given statement for $j$ vertices. Consider $P(j=1)$. This means the tree contains only one vertex, unique. Therefore, $P(1)$ is true.\\
+		Suppose $P(j=n)$ is true, consider $P(j=n+1)$. Since the preorder and the number of children of each vertex are given, we can find one leaf vertex $v$ which appears at first, because $v$ has no children. Since $v$ is in preorder, we can find its parent $w$(just preceding $v$).\\
+		Now, remove $v$ in the given preorder and decrease the number of children of $w$ by 1. This result is the same as the statement in $P(n)$. This means we get the unique tree except one vertex $v$. The last step is to return to origin: put $v$ in its previous position and add 1 to the number of children of $w$. This last step is also unique(only one way), so we get the unique tree with $n+1$ vertices. Therefore, $P(n+1)$ is true.\\
+	\end{proof}

@@ -1,0 +1,12 @@
+\section*{Problem 3}
+	\begin{proof}
+		Let $F$ be DNF of $f$. Then $F = m_1\vee m_2\vee\cdots\vee m_k$, where $m_k$ is conjunctive form. Since $\neg m_k$ is disjunctive form and $\neg\vee = \wedge$, $\neg F$ is CNF.\\
+		The CNF form of the above problem is
+		\begin{equation*}
+			f(w,x,y,z)=\begin{multlined}[t]
+				(\neg w\vee\neg x\vee\neg y\vee z)\wedge(\neg w\vee\neg x\vee y\vee z)\wedge(\neg w\vee x\vee \neg y\vee\neg z)\\
+				\wedge(\neg w\vee x\vee\neg y\vee z)\wedge(\neg w\vee x\vee y\vee z)\wedge(w\vee\neg x\vee\neg y\vee z)\wedge(w\vee\neg x\vee y\vee\neg z)\\
+				\wedge(w\vee\neg x\vee y\vee z)\wedge(w\vee x\vee\neg y\vee z)\wedge(w\vee x\vee y\vee\neg z)\wedge(w\vee x\vee y\vee z)
+			\end{multlined}
+		\end{equation*}
+	\end{proof}

@@ -1,0 +1,27 @@
+\section*{Problem 5}
+	\begin{enumerate} [(a)]
+		\item \begin{proof} [Solution]
+			There are 7 days per week. For each person, there is a $\frac{1}{7}$ chance of being born on any specific day. Also, we have $_{7}\mathrm{C}_{1} = 7$ cases to choose that specific day. Therefore, $7\times\frac{1}{7}\times\frac{1}{7} = \frac{1}{7}$\\
+		\end{proof}
+		\item \begin{proof} [Solution]
+			First, calculate the probability that all $n$ people were born on different days of the week. The first person can be born on any of the 7 days of the week, so the probability is $\frac{7}{7}$. rom the second person onwards, they must be born on a different day than the previous person, which gives a probability of $\frac{6}{7}$. Continue this, then
+			\begin{align*}
+				\frac{7}{7}\times\frac{6}{7}\times\cdots\times\frac{7 - (n - 1)}{7}
+			\end{align*}
+			Note that this is valid for $n \leq 7$. If $n \geq 8$, then that value is 0(If you apply the \textit{Pigeonhole principle}, then the probability is 1 if $n \geq 8$). The answer is subtract it from 1.\\
+		\end{proof}
+		\item \begin{proof} [Solution]
+			From (b), just put $n = 1$ to $7$. Here are the results.
+			\begin{itemize}
+				\item $n = 1\Rightarrow P = 0$ (since there's only one person, the probability of two people being born on the same day is impossible, 0)
+				\item $n = 2\Rightarrow P = \frac{1}{7}$(note that this is the same as in (a))
+				\item $n = 3\Rightarrow P \simeq 0.388$
+				\item $n = 4\Rightarrow P\simeq 0.650$
+				\item $n = 5\Rightarrow P\simeq 0.850$
+				\item $n = 6\Rightarrow P\simeq 0.957$
+				\item $n = 7\Rightarrow P\simeq 0.994$
+				\item $n \geq 8\Rightarrow P = 1$
+			\end{itemize}
+			Therefore, we need at least 4 people.\\
+		\end{proof}
+	\end{enumerate}

@@ -1,0 +1,126 @@
+\section*{Problem 1}
+	{\color{orange} \textbf{WARNING}}: You should only use the basic axioms of \textit{Boolean Algebra}. You cannot use any other law without proof!
+	\begin{align}
+		&\text{(Associative law) }(x + y) + z = x + (y + z)\text{ and }x\cdot(y\cdot z) = (x\cdot y)\cdot z \label{A}\\
+		&\text{(Commutative law) }x + y = y + x\text{ and }x\cdot y = y\cdot x \label{C}\\
+		&\text{(Distributive law) }x\cdot(y + z) = (x\cdot y) + (x\cdot z)\text{ and }x + (y\cdot z) = (x+y)\cdot(x+z) \label{D}\\\
+		&\text{(Identity element) }x + 0 = x\text{ and }x\cdot1 = x \label{E}\\
+		&\text{(Inverse) }x + x\textquotesingle = 1\text{ and }x\cdot x\textquotesingle = 0 \label{I}
+	\end{align}
+	\begin{enumerate} [(a)]
+		\item \begin{proof} \label{idm}
+			\begin{align*}
+				x+x &= 1\cdot(x+x) &\text{by }(\ref{D})\\
+				&= (x+x\textquotesingle)\cdot(x+x) &\text{by }(\ref{I})\\
+				&= x+x\cdot x\textquotesingle &\text{by }(\ref{D})\\
+				&= x+0 &\text{by }(\ref{I})\\
+				&= x &\text{by }(\ref{E})
+			\end{align*}
+			\begin{align*}
+				x\cdot x &= x\cdot x + 0 &\text{by }(\ref{E})\\ 
+				&= x\cdot x + x\cdot x\textquotesingle &\text{by }(\ref{I})\\
+				&= x\cdot(x+x\textquotesingle) &\text{by }(\ref{D})\\
+				&= x\cdot1 &\text{by }(\ref{I})\\
+				&= x &\text{by }(\ref{E})
+			\end{align*}
+		\end{proof}
+		\item \begin{proof} \label{bdd}
+			\begin{align*}
+				x+1 &= x + (x+x\textquotesingle) &\text{by }(\ref{I})\\
+				&= (x + x) + x\textquotesingle &\text{by }(\ref{A})\\
+				&= x+x\textquotesingle &\text{by (\ref{idm})}\\
+				&= 1 &\text{by (\ref{I})}
+			\end{align*}
+			\begin{align*}
+				x\cdot0 &= x\cdot(x\cdot x\textquotesingle) &\text{by (\ref{I})}\\
+				&= (x\cdot x)\cdot x\textquotesingle &\text{by (\ref{A})}\\
+				&= x\cdot x\textquotesingle &\text{by (\ref{idm})}\\
+				&= 0 &\text{by (\ref{I})}
+			\end{align*}
+		\end{proof}
+		\item \begin{proof} \label{abs}
+			\begin{align*}
+				x+x\cdot y &= x\cdot1 + x\cdot y &\text{by (\ref{E})}\\
+				&= x\cdot(1+y) &\text{by (\ref{D})}\\
+				&= x\cdot1 &\text{by (\ref{bdd})}\\
+				&= x &\text{by (\ref{E})}
+			\end{align*}
+			\begin{align*}
+				x\cdot(x+y) &= (x+0)\cdot(x+y) &\text{by (\ref{I})}\\
+				&= x+0\cdot y &\text{by (\ref{D})}\\
+				&= x+0 &\text{by (\ref{bdd})}\\
+				&= x &\text{by (\ref{E})}
+			\end{align*}
+		\end{proof}
+		\item \begin{proof} \label{ivl}
+			\begin{align*}
+				(x\textquotesingle)\textquotesingle &= (x\textquotesingle)\textquotesingle + 0 &\text{by (\ref{E})}\\
+				&=(x\textquotesingle)\textquotesingle + x\cdot x\textquotesingle &\text{by (\ref{I})}\\
+				&= ((x\textquotesingle)\textquotesingle + x)\cdot((x\textquotesingle)\textquotesingle + x\textquotesingle) &\text{by (\ref{D})}\\
+				&= ((x\textquotesingle)\textquotesingle + x)\cdot1 &\text{by (\ref{I})}\\
+				&= ((x\textquotesingle)\textquotesingle + x)\cdot(x + x\textquotesingle) &\text{by (\ref{I})}\\
+				&= (x+(x\textquotesingle)\textquotesingle)\cdot(x + x\textquotesingle) &\text{by (\ref{C})}\\
+				&= x + (x\textquotesingle)\textquotesingle\cdot x\textquotesingle &\text{by (\ref{D})}\\
+				&= x + 0 &\text{by (\ref{I})}\\
+				&= x &\text{by (\ref{E})}
+			\end{align*}
+		\end{proof}
+		\item \begin{proof} \label{0&1}
+			\begin{align*}
+				1\textquotesingle & = 1\textquotesingle\cdot1 &\text{by (\ref{E})}\\
+				&= 0 &\text{by (\ref{I})}
+			\end{align*}
+			\begin{align*}
+				0\textquotesingle & = (1\textquotesingle)\textquotesingle &\text{by (\ref{0&1})}\\
+				&= 1 &\text{by (\ref{ivl})}
+			\end{align*}
+		\end{proof}
+		\item \begin{proof}
+			Note that the Inverse law(\ref{I}) implies
+			\begin{itemize}
+				\item [] If $x + y = 1$ and $x\cdot y = 0$, then $x\textquotesingle = y$
+			\end{itemize}
+			We use this.\\
+			\begin{align*}
+				(x + y) + x\textquotesingle\cdot y\textquotesingle &= (x+y)\cdot1 + x\textquotesingle\cdot y\textquotesingle &\text{by (\ref{E})}\\
+				&= (x+y)\cdot(x+x\textquotesingle) + x\textquotesingle\cdot y\textquotesingle &\text{by (\ref{I})}\\
+				&= (x + y\cdot x\textquotesingle) + x\textquotesingle\cdot y\textquotesingle &\text{by (\ref{D})}\\
+				&= x + (y\cdot x\textquotesingle + x\textquotesingle\cdot y\textquotesingle) &\text{by (\ref{A})}\\
+				&= x + (x\textquotesingle\cdot y + x\textquotesingle\cdot y\textquotesingle) &\text{by (\ref{C})}\\
+				&= x + x\textquotesingle\cdot(y + y\textquotesingle) &\text{by (\ref{D})}\\
+				&= x + x\textquotesingle\cdot1 &\text{by (\ref{I})}\\
+				&= x + x\textquotesingle &\text{by (\ref{E})}\\
+				&= 1 &\text{by (\ref{I})}
+			\end{align*}
+			\begin{align*}
+				(x + y)\cdot (x\textquotesingle\cdot y\textquotesingle) &= x\cdot(x\textquotesingle\cdot y\textquotesingle) + y\cdot(x\textquotesingle\cdot y\textquotesingle) &\text{by (\ref{D})}\\
+				&= x\cdot(x\textquotesingle\cdot y\textquotesingle) + y\cdot(y\textquotesingle\cdot x\textquotesingle) &\text{by (\ref{C})}\\
+				&= (x\cdot x\textquotesingle)\cdot y\textquotesingle + (y\cdot y\textquotesingle)\cdot x\textquotesingle &\text{by (\ref{A})}\\
+				&= 0\cdot y\textquotesingle + 0\cdot x\textquotesingle &\text{by (\ref{I})}\\
+				&= 0 + 0 &\text{by (\ref{bdd})}\\
+				&= 0 &\text{by (\ref{idm})}
+			\end{align*}
+			Therefore, $(x+y)\textquotesingle=x\textquotesingle\cdot y\textquotesingle$. Similarly,
+			\begin{align*}
+				x\cdot y + (x\textquotesingle+ y\textquotesingle) &= x\cdot y + (x\textquotesingle+ y\textquotesingle)\cdot1 &\text{by (\ref{E})}\\
+				&= x\cdot y + (x\textquotesingle+ y\textquotesingle)\cdot(x\textquotesingle + x) &\text{by (\ref{I})}\\
+				&= x\cdot y + (x\textquotesingle+ x\cdot y\textquotesingle) &\text{by (\ref{D})}\\
+				&= (x\cdot y + x\textquotesingle)+ x\cdot y\textquotesingle &\text{by (\ref{A})}\\
+				&= (x\textquotesingle + x\cdot y)+ x\cdot y\textquotesingle &\text{by (\ref{C})}\\
+				&= x\textquotesingle + (x\cdot y + x\cdot y\textquotesingle) &\text{by (\ref{A})}\\
+				&= x\textquotesingle + x\cdot(y + y\textquotesingle) &\text{by (\ref{D})}\\
+				&= x\textquotesingle + x\cdot1 &\text{by (\ref{I})}\\
+				&= x\textquotesingle + x &\text{by (\ref{E})}\\
+				&= 1 &\text{by (\ref{I})}
+			\end{align*}
+			\begin{align*}
+				(x\cdot y)\cdot (x\textquotesingle+ y\textquotesingle) &= (x\cdot y)\cdot x\textquotesingle + (x\cdot y)\cdot y\textquotesingle &\text{by (\ref{D})}\\
+				&= (y\cdot x)\cdot x\textquotesingle + (x\cdot y)\cdot y\textquotesingle &\text{by (\ref{C})}\\
+				&= y\cdot (x\cdot x\textquotesingle) + x\cdot (y\cdot y\textquotesingle) &\text{by (\ref{A})}\\
+				&= y\cdot 0 + x\cdot 0 &\text{by (\ref{I})}\\
+				&= 0 + 0 &\text{by (\ref{bdd})}\\
+				&= 0 &\text{by (\ref{idm})}
+			\end{align*}
+			Therefore, $(x\cdot y)\textquotesingle=x\textquotesingle+ y\textquotesingle$.\\
+		\end{proof}
+	\end{enumerate}

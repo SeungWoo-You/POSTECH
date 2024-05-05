@@ -1,0 +1,24 @@
+\section*{Problem 4}
+	\begin{enumerate} [(a)]
+		\item 
+		\begin{proof}
+			Using the definition of \textit{limit} and \textit{$O$ notation}.
+			\begin{align*}
+				&\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = 0\\
+				\Rightarrow& \mbox{ for given }\epsilon > 0, ^\exists N \in \mathbb{Z}^+ \mbox{ such that } n \geq N \implies \left|\frac{f(n)}{g(n)} - 0 \right| \leq \epsilon\\
+				\Rightarrow& ^\exists N \in \mathbb{Z}^+ \mbox{ such that } n \geq N \implies \left| f(n) \right| \leq \epsilon\left| g(n)\right| \mbox{ for some(exactly, any) } \epsilon > 0\\
+				\Rightarrow& f(n) = O(g(n))
+			\end{align*}
+		\end{proof}
+		\item 
+		\begin{proof}
+			Using the definition of \textit{limit} and \textit{$\Theta$ notation}.
+			\begin{align*}
+				&\lim_{n \rightarrow \infty}\frac{f(n)}{g(n)} = c \neq 0\\
+				\Rightarrow& \mbox{ for given }\epsilon > 0, ^\exists N \in \mathbb{Z}^+ \mbox{ such that } n \geq N \implies \left|\frac{f(n)}{g(n)} - c \right| \leq \epsilon\\
+				\Rightarrow& ^\exists N \in \mathbb{Z}^+ \mbox{ such that } n \geq N \implies (c - \epsilon)\left| g(n) \right| \leq \left| f(n) \right| \leq (c + \epsilon)\left| g(n)\right| \mbox{ for any } \epsilon > 0\\
+				\Rightarrow& f(n) = \Theta(g(n))
+			\end{align*}
+			Note that we can find $\epsilon > 0$ where $c - \epsilon > 0$ because of the \textit{Archimedean Property}.\\
+		\end{proof}
+	\end{enumerate}

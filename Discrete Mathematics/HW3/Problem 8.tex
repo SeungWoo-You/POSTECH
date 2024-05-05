@@ -1,0 +1,28 @@
+\section*{Problem 8}
+	\begin{proof}
+		Let $x\in \mathbb{Z}_n$. i.e. we prove $x = 1$ or $x = n - 1$. If $n = 2$, then it is true by brute-force calculate. Consider $n > 2$. Note that the \textit{Euclid\textquotesingle s lemma}: if prime $p \mid ab$, then $p \mid a$ or $p \mid b$.
+		\begin{align*}
+			&x^2 \equiv 1 \mod n\\
+			\Rightarrow\ &x^2 - 1 \equiv 0 \mod n\\
+			\Rightarrow\ &(x - 1)(x + 1) \equiv 0 \mod n\\
+			\Rightarrow\ & n \mid (x - 1) \mbox{ or } n \mid (x + 1)
+		\end{align*}
+		But $n$ can divide only one of them, not both. If $n$ can divide both, then $\gcd(x - 1, x + 1) = n > 2$. However, $\gcd(x - 1, x + 1) \leq 2$. To prove this, let $\gcd(x - 1, x + 1) = d$. Then $d \mid (x - 1)$ and $d \mid (x + 1)$, so $x - 1 \equiv 0 \mod d$ and $x + 1 \equiv 0 \mod d$. This follows $(x - 1) + (x + 1) = 2x \equiv 0 \mod d$ and $(x + 1) - (x - 1) = 2 \equiv 0 \mod d$. Therefore, $\gcd(2x, 2) = d \leq 2$.\\
+		By the above statement, we have only 2 cases:
+		\begin{enumerate} [i)]
+			\item Suppose $n \mid (x - 1)$.
+			\begin{align*}
+				&n \mid (x - 1)\\
+				\Rightarrow\ &x - 1 \equiv 0 \mod n\\
+				\Rightarrow\ &x \equiv 1 \mod n
+			\end{align*}
+			Since $x\in \mathbb{Z}_n$, $x = 1$.
+			\item Suppose $n \mid (x + 1)$.
+			\begin{align*}
+				&n \mid (x + 1)\\
+				\Rightarrow\ &x + 1 \equiv 0 \mod n\\
+				\Rightarrow\ &x \equiv -1 \mod n
+			\end{align*}
+			Since $x\in \mathbb{Z}_n$, $x = n - 1$.
+		\end{enumerate}
+	\end{proof}

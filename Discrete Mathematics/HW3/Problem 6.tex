@@ -1,0 +1,12 @@
+\section*{Problem 6}
+	\begin{proof}
+		($\Rightarrow$) Using negation. Suppose $\gcd(m, n) = c \neq 1$. Note that $\lcm(m, n) = \frac{mn}{\gcd(m, n)} = \frac{mn}{c}$. Let $x_1 = 0$, $x_2 = \frac{\lcm(m, n)}{n} = \frac{m}{c}$. Since $1 \leq \lcm(m, n) < mn$, $1 < \frac{\lcm(m, n)}{n} = x_2 < m$. So $x_1 \neq x_2$. But $f(x_1) = 0$, $f(x_2) = n\frac{m}{c} \mod m = 0$. Therefore, $f(x_1) = f(x_2)$, $f$ is not one-to-one.\\
+		($\Leftarrow$) First, if $m = 1$, then it is trivial. So consider $m > 1$. Using negation. Suppose $f$ is not one-to-one. This implies $^\exists x_1, x_2$ such that $x_1 \neq x_2$ but $f(x_1) = f(x_2)$. WOLG, $x_1 > x_2$. Note that $x_1, x_2 \in X$. i.e. $0 \leq x_2 < x_1 \leq m - 1$.
+		\begin{align*}
+			f(x_1) = nx_1 \mod m,&\quad f(x_2) = nx_2 \mod m\\
+			\Rightarrow&\ n(x_1 -x_2) \equiv 0 \mod m\\
+			\Rightarrow&\ m \mid n\mbox{ or }m \mid(x_1 - x_2)\mbox{ but } m \nmid (x_1 - x_2)\\
+			\Rightarrow&\ m \mid n\\
+			\Rightarrow&\ gcd(m, n) = m > 1
+		\end{align*}
+	\end{proof}

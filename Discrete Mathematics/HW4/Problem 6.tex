@@ -1,0 +1,31 @@
+\section*{Problem 6}
+	\begin{proof}
+		Proof by (strong) induction. Let the given statement be $P(j = n)$. Consider $P(j = 1)$. Then $\left|X_1\right| = \sum\limits_{1\leq i\leq 1}\left|X_i\right|$ is true, because $\sum\limits_{1\leq i\leq 1} \Leftrightarrow i = 1$(There is only one case).\\
+		Suppose $P(j)$ is true for $j \leq n$. Consider $P(j = n + 1)$.
+		\begin{align*}
+			& \left|X_1 \cup X_2 \cup \cdots \cup X_n \cup X_{n + 1}\right|\\
+			=\ & \left|\left(X_1 \cup X_2 \cup \cdots \cup X_n\right) \cup X_{n + 1}\right|
+		\end{align*}
+		Denote $X_{\mu} = X_1 \cup X_2 \cup \cdots \cup X_n$.
+		\begin{align*}
+			\Rightarrow\ & \left|X_\mu \cup X_{n + 1}\right|\\
+			=\ & \sum\limits_{i=\mu, n + 1}\left|X_i\right| - \sum\limits_{(i, j) = (\mu, n + 1)}\left|X_i\cap X_j\right|\\
+			=\ & \left|X_\mu\right| + \left|X_{n + 1}\right| - \left|X_\mu \cap X_{n + 1}\right|\\
+			=\ & \left|X_1 \cup X_2 \cup \cdots \cup X_n\right| + \left|X_{n + 1}\right| - \left|\left(X_1 \cup X_2 \cup \cdots \cup X_n\right) \cap X_{n + 1}\right|
+		\end{align*}
+		Note that \textit{Distributive law of sets}: $\left[\mbox{for all sets }A, B,\mbox{and }C, A\cap(B\cup C) = (A\cap B) \cup (A\cap C)\right]$. Apply this to the second term.
+		\begin{align*}
+			\Rightarrow\ & \left|X_1 \cup X_2 \cup \cdots \cup X_n\right| + \left|X_{n + 1}\right| - \left|\left(X_1\cap X_{n + 1}\right)\cup\left(X_2\cap X_{n + 1}\right)\cup\cdots\cup\left(X_n\cap X_{n + 1}\right)\right|\\
+			=\ & \sum\limits_{1\leq i\leq n}\left|X_i\right| - \sum\limits_{1\leq i < j\leq n}\left|X_i\cap X_j\right| + \sum\limits_{1\leq i < j < k\leq n}\left|X_i\cap X_j\cap X_k\right| -\cdots(-1)^{n + 1}\left|X_1\cap X_2\cap\cdots\cap X_n\right|\\
+			& + \left|X_{n + 1}\right|\\
+			\begin{split}
+				& - \left[\sum\limits_{1\leq i\leq n}\left|X_i\cap X_{n + 1}\right| - \sum\limits_{1\leq i < j\leq n}\left|X_i\cap X_j\cap X_{n + 1}\right|\right.\\
+				& + \left.\sum\limits_{1\leq i < j < k\leq n}\left|X_i\cap X_j\cap X_k\cap X_{n + 1}\right| -\cdots(-1)^{n + 1}\left|X_1\cap X_2\cap\cdots\cap X_n\cap X_{n + 1}\right|\right]
+			\end{split}\\
+			=\ & \sum\limits_{1\leq i\leq n}\left|X_i\right| - \sum\limits_{1\leq i < j\leq n}\left|X_i\cap X_j\right| + \sum\limits_{1\leq i < j < k\leq n}\left|X_i\cap X_j\cap X_k\right| -\cdots(-1)^{n + 1}\left|X_1\cap X_2\cap\cdots\cap X_n\right|\\
+			& + \left|X_{n + 1}\right|\\
+			& - \sum\limits_{1\leq i\leq n}\left|X_i\cap X_{n + 1}\right| + \sum\limits_{1\leq i < j\leq n}\left|X_i\cap X_j\cap X_{n + 1}\right|\\
+			& - \sum\limits_{1\leq i < j < k\leq n}\left|X_i\cap X_j\cap X_k\cap X_{n + 1}\right| +\cdots(-1)^{n + 2}\left|X_1\cap X_2\cap\cdots\cap X_n\cap X_{n + 1}\right|
+		\end{align*}
+		Combine term-by-term. For example, $\left|X_{n + 1}\right|$ is the same as $\left|X_i\right|$ for $i = n + 1$, so we can put in $\sum\limits_{1\leq i\leq n}\left|X_i\right|$. Then we get $\sum\limits_{1\leq i\leq n + 1}\left|X_i\right|$. For next term, since $\sum\limits_{1\leq i\leq n}\left|X_i\cap X_{n + 1}\right| = \sum\limits_{1\leq i < j = n + 1}\left|X_i\cap X_j\right|$, we can put it into $\sum\limits_{1\leq i < j\leq n}\left|X_i\cap X_j\right|$. Then we get $\sum\limits_{1\leq i < j\leq n + 1}\left|X_i\cap X_j\right|$. The equation after combining is the same as desired. Note that the number of terms of the result is $n + 1$(When a complete formula cannot be written, it is better to write down the number of terms but not necessary).\\
+	\end{proof}

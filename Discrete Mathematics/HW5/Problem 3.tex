@@ -1,0 +1,12 @@
+\section*{Problem 3}
+	\begin{proof}
+		For any two points $a_1 = (x_1, y_1)$ and $a_2 = (x_2, y_2)$, the midpoint $z = (\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})$. If $\frac{x_1 + x_2}{2}$ is an integer, then $x_1$ and $x_2$ are both even or odd. Similarly, $y_1$ and $y_2$ are both even or odd. All points with integer coordinates can be classified into four sets:
+		\begin{align*}
+			A_1 &= \{(x, y) \mid x\mbox{ is even, } y\mbox{ is odd}\}\\
+			A_2 &= \{(x, y) \mid x\mbox{ is even, } y\mbox{ is even}\}\\
+			A_3 &= \{(x, y) \mid x\mbox{ is odd, } y\mbox{ is odd}\}\\
+			A_4 &= \{(x, y) \mid x\mbox{ is odd, } y\mbox{ is even}\}
+		\end{align*}
+		If some $A_i$ has at least two elements, then we can get midpoint with integer coordinates by picking two of them. Since five distinct points are given, by the \textit{Pigeonhole Principle}, some $A_i$ has at least two elements.\\
+		{\color{orange} \textbf{WARNING}}: When you classify them, using the word \textbf{group} is dangerous. Because there is a mathmatical structure called a group. Avoid using the word group unless it describes a real-life situation. We have a nice container called a set.\\
+	\end{proof}

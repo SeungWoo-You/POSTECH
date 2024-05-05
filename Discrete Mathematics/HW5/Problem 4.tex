@@ -1,0 +1,16 @@
+\section*{Problem 4}
+	For all problems, suppose that student choose all answers half-and-half.
+	\begin{enumerate} [(a)]
+		\item \begin{proof} [Solution]
+			There is only one case: $_{10}\mathrm{C}_{10} = 1$(from 10 questions, select 10 correct answers). That case has $\left(\frac{1}{2}\right)^{10}\left(\frac{1}{2}\right)^0 = \left(\frac{1}{2}\right)^{10}$(10 corrects, 0 incorrects). Only about $0.098\%$.\\
+		\end{proof}
+		\item \begin{proof} [Solution]
+			Similarly, there is only one case: $_{10}\mathrm{C}_{0} = 1$(from 10 questions, select 0 correct answers). That case has $\left(\frac{1}{2}\right)^{0}\left(\frac{1}{2}\right)^{10} = \left(\frac{1}{2}\right)^{10}$(0 corrects, 10 incorrects). Only about $0.098\%$.\\
+		\end{proof}
+		\item \begin{proof} [Solution]
+			There are $_{10}\mathrm{C}_{1} = 10$ cases(from 10 questions, select 1 correct answer). Each case has the probability $\left(\frac{1}{2}\right)^{1}\left(\frac{1}{2}\right)^{9} = \left(\frac{1}{2}\right)^{10}$(1 correct, 9 incorrects). Therefore, the answer is $10\left(\frac{1}{2}\right)^{10}\simeq0.98\%$.\\
+		\end{proof}
+		\item \begin{proof} [Solution]
+			There are $_{10}\mathrm{C}_{5}$ cases(from 10 questions, select 5 correct answers). Each case has the probability $\left(\frac{1}{2}\right)^{5}\left(\frac{1}{2}\right)^{5} = \left(\frac{1}{2}\right)^{10}$(5 corrects, 5 incorrects). Therefore, the answer is $_{10}\mathrm{C}_{5}\left(\frac{1}{2}\right)^{10}\simeq24.61\%$.\\
+		\end{proof}
+	\end{enumerate}

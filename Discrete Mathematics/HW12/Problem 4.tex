@@ -1,0 +1,26 @@
+\section*{Problem 4}
+	\begin{proof}
+		Note that the definition of NOR is `not OR', i.e.
+		\begin{equation*}
+			x\downarrow y = \neg(x\vee y)
+		\end{equation*}
+		First, claim that NOT is expressed by only NOR.
+		\begin{align*}
+			\neg p=
+			\begin{cases}
+				0 & \mbox{if }p=1 \\
+				1 & \mbox{if }p=0
+			\end{cases} =
+			\begin{cases}
+				p\downarrow p & \mbox{if }p=1 \\
+				p\downarrow p & \mbox{if }p=0
+			\end{cases}
+			= p\downarrow p
+		\end{align*}
+		Next, claim that OR is expressed by only NOR.
+		\begin{align*}
+			p\vee q &= \neg\neg(p\vee q) = \neg(\neg(p\vee q))\\
+			&= \neg(p\downarrow q) = (p\downarrow q)\downarrow(p\downarrow q)
+		\end{align*}
+		Therefore, since \{OR, NOT\} is functionally complete, \{NOR\} is functionally complete.\\
+	\end{proof}

@@ -1,0 +1,17 @@
+\section*{Problem 6}\label{problem 6}
+	\begin{proof}
+		First, note that the \textit{Euler formula}: [For planer graph, $v - e + f = 2$]. Suppose there is no cycle. Then $f = 1$, so $v - e = 1$.
+		\begin{align*}
+			& 4 \leq v\\
+			\Rightarrow\ & \frac{7}{2} \leq 4 \leq v\\
+			\Rightarrow\ & \frac{7}{3} \leq \frac{2}{3}v\\
+			\Rightarrow\ & v \leq \frac{2}{3}v - \frac{7}{3} + v\\
+			\Rightarrow\ & e = v - 1\leq \frac{5}{3}v - \frac{10}{3}
+		\end{align*}
+		If there are cycles, then since each $\deg{f}$ is at least 5(because the graph has no simple cycles of length $\leq4$), $2e = \sum\deg{f} \geq 5f$. By \textit{Euler}, apply $f = 2 - v + e$.
+		\begin{align*}
+			2e &\geq 5f = 5(2 - v + e)\\
+			-3e &\geq 10 - 5v\\
+			e &\leq \frac{5}{3}v - \frac{10}{3}
+		\end{align*}
+	\end{proof}

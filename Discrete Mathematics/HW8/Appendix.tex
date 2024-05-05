@@ -1,0 +1,9 @@
+\section*{Appendix}
+	For a graph $G$, the diameter of the graph $G$ is the greatest distance between any pair of vertices in $G$. In other words, the diameter $d$ is
+	\begin{equation*}
+		d = \max\limits_{(u,v)\in V\times V}d(u, v)
+	\end{equation*}
+	Show that the diameter of a graph is a graph invariant.
+	\begin{proof}
+		Suppose $G$ has a diameter $d$ with $n$ nodes. Then there is a path from $u$ to $v$ which make $d$. Let $u = v_1$ and $v = v_k(1\leq k \leq n)$. Note that this $k$ is fixed. Consider another graph $H\simeq G$. Then there is $\{u_i\}_{ji=1}^k\subseteq H$ such that $u_i \mapsto v_i$(we can indexing in such way). Also, isomorphism preserves the edge-weight, this new path has the same cost. By the isomorphism, there is no higher path in $H$. Therefore, $d$ is graph invariant.\\
+	\end{proof}

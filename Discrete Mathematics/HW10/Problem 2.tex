@@ -1,0 +1,5 @@
+\section*{Problem 2}
+	\begin{proof}
+		Proof by (strong) induction. Let $k$ be the number of operators. Then we need to prove the number of symbols is $k + 1$. Consider $k=0$. Then by the definition of \textit{Well-formed formula(WFF)}, it has the form $x$ which is one symbol. Therefore, $k=0$ is true.\\
+		Suppose $k \leq n$ is true, consider $k=n+1$. Note that the form of WFF is $*XY$ if WFF has at least one binary operator. Remove the $*$ appears in front. Then the remains $XY$ has $n$ operators. Since $X$ is WFF, it has $0 \leq m\leq n$ operators so has $m + 1$ symbols. Similarly, $Y$ has $0\leq n - m \leq n$ operators so has $n - m + 1$ symbols. Thus $XY$ has $n$ operators and $n + 2$ symbols. Now, add the removed operator. Then we get $n+1$ operators and $n+2$ symbols, true.\\
+	\end{proof}

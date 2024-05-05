@@ -1,0 +1,31 @@
+\section*{Problem 3}
+	\begin{enumerate} [(a)]
+		\item \begin{proof}
+			$(\Rightarrow)$ Suppose the first player can always win Nim. There are two possible cases for his last turn:
+			\begin{itemize}
+				\item There is only one pile wtih $m$ coins($m>1$). Then he will take $m - 1$ coins to win at Nim.
+				\item There are two piles: one coin and $m$ coins($m>1$). Then he will take $m$ coins to win at Nim.
+			\end{itemize}
+			Note that other cases are impossible. Because if the number of piles $\geq$ 3, then the game needs at least 3-turn. This contradicts to the assumption: last turn. If there are two piles with $n$ coins and $m$ coins($n>1$), then he will lose if the game end in 2-turn.\\
+			For the first case, he will take $m$ coins instead $m-1$ coins to win at Nim\textquotesingle. For the second case, also he will take $m-1$ coins to win at Nim\textquotesingle.\\
+			$(\Leftarrow)$ Similar proof as above.\\
+		\end{proof}
+		\item \begin{proof}
+			First, define the nim-sum operator $\oplus$
+			\begin{itemize}
+				\item [] For each digit of binary numbers, apply XOR operation(modulo 2 operation)
+			\end{itemize}
+			For example, $1100 \oplus 1010 = 0110$.\\
+			For Nim, player A will win if he makes odd numbers of one-coin piles with the following rules:
+			\begin{itemize}
+				\item [] Make nim-sum be 0 for all piles. 
+			\end{itemize}
+			For example, let piles with 3, 4, and 5 coins be given. Then the nim-sum is $3\oplus4\oplus5 = 011_2\oplus100_2\oplus101_2=010_2=2$. To make nim-sum 0, remove 2 coins from 3-coin pile. Then $1\oplus4\oplus5 = 001_2\oplus100_2\oplus101_2=000_2=0$. This is always true because of the theorems:
+			\begin{itemize}
+				\item This is the winning strategy.
+				\item We can always find the number of coins to make nim-sum 0.
+			\end{itemize}
+			The proof of these theorems is very difficult to understand, so just accept.\\
+			For Nim\textquotesingle, just make nim-sum 0 at each turn. you don\textquotesingle t have to consider making odd numbers of one-coin piles.\\
+		\end{proof}
+	\end{enumerate}

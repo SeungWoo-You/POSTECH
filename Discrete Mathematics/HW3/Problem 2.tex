@@ -1,0 +1,11 @@
+\section*{Problem 2}
+	\begin{proof} [Solution]
+		Make any increasing functions $f(n)$ and $g(n)$ such that $f(n) > g(n)$ and $g(n) \geq f(n)$ for infinitely many intervals. For example, define
+		\begin{align*}
+			f(n) = 2n, \quad g(n) = \begin{cases}
+				n + 4k, & \mbox{if }n \in (4k, 4k + 2] \\
+				n + 4k + 4, & \mbox{if }n \in (4k + 2, 4k + 4]
+			\end{cases}
+		\end{align*}
+		for $k = 0, 1, \cdots$. Then $f(n) > g(n)$ for $n \in (4k, 4k + 2]$, $g(n) \geq f(n)$ for $n \in (4k + 2, 4k + 4]$. This gives the desired result.\\
+	\end{proof}

@@ -1,0 +1,14 @@
+\section*{Problem 4}
+	\begin{proof} [Solution]
+		The given logistic map is a recurrence relation. Modify it as following:
+		\begin{align*}
+			& x_{k+1} = rx_k(1 - x_k)\\
+			\Rightarrow\ &x_{k+1} = -rx_k^2 + rx_k\\
+			\Rightarrow\ &rx_k^2 - rx_k + x_{k+1} = 0
+		\end{align*}
+		It is hard to solve directly because of the non-linear recurrence form. But since $x_{k+1}$ will be given, we can consder $x_{k+1}$ as a constant. Then this is a second-order equation for $x_k$ if $r \neq 0$. The solutions are
+		\begin{align*}
+			x_k = \frac{r \pm \sqrt{r^2 - 4rx_{k+1}}}{2r}
+		\end{align*}
+		Note that there are two solutions at most. If we find all $x_i$ from $x_0$, then it takes $O(n)$ time. However, if starting from the end: $x_n$, then it takes $O(2^n)$ time. Because each $x_i$ can have 2 states, we should check the validity of all values.\\
+	\end{proof}

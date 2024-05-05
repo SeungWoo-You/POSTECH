@@ -1,0 +1,89 @@
+\section*{Problem 6}
+	\begin{proof} [Solution]
+		First, summarize the given information.
+		\begin{itemize}
+			\item From company, 60\% success and 40\% failure. $\Rightarrow P(\mbox{success}) = 0.6, P(\mbox{failure}) = 0.4$
+			\item From predict, 70\% success if success. $\Rightarrow P(\mbox{predict success} \mid\mbox{success}) = 0.7$
+			\item From predict, 40\% success if failure. $\Rightarrow P(\mbox{predict success} \mid\mbox{failure}) = 0.4$
+		\end{itemize}
+		We want to find success if predict success. i.e. $P(\mbox{success} \mid\mbox{predict success})$. Use \textit{Bayes\textquotesingle theorem}.
+		\begin{align*}
+			P(\mbox{success} \mid\mbox{predict success}) &= \frac{P(\mbox{success}\cap\mbox{predict success})}{P(\mbox{predict success})}\\
+			&= \frac{P(\mbox{predict success} \mid\mbox{success})\times P(\mbox{success})}{P(\mbox{predict success})}\\
+		\end{align*}
+		Note that $P(\mbox{predict success}) = P(\mbox{predict success} \mid\mbox{success})\times P(\mbox{success}) + P(\mbox{predict success} \mid\mbox{failure})\times P(\mbox{failure}) = 0.7\times0.6 + 0.4\times0.4 = 0.58$. Therefore, the answer is $\frac{0.7\times0.6}{0.58} \simeq 72.41\%$.\\
+		{\color{cyan}\textbf{APPENDIX}}:\label{APPENDIX} You can use a table and explain brief. But \textbf{be careful}: table is just for supporting purposes only, not a logical explanation. Following is how to draw the table.
+		\begin{itemize}
+			\item [] C is a company, R is a predict, S is a success, and F is a failure.
+				\begin{table}[htb!]
+					\setlength{\tabcolsep}{15pt}
+					\renewcommand{\arraystretch}{2}
+					\centering
+					\begin{tabular}{ccccc}
+						&                            & \multicolumn{2}{c}{C}      &       \\
+						& \multicolumn{1}{c|}{}      & S & \multicolumn{1}{c|}{F} & total \\ \cline{2-5} 
+						\multirow{2}{*}{P} & \multicolumn{1}{c|}{S}     & ? & \multicolumn{1}{c|}{?} & ?     \\
+						& \multicolumn{1}{c|}{F}     & ? & \multicolumn{1}{c|}{?} & ?     \\ \cline{2-5} 
+						& \multicolumn{1}{c|}{total} & ? & \multicolumn{1}{c|}{?} & 1    
+					\end{tabular}
+				\end{table}\\
+				From the given information, we get the following result:
+				\begin{table}[htb!]
+					\setlength{\tabcolsep}{15pt}
+					\renewcommand{\arraystretch}{2}
+					\centering
+					\begin{tabular}{ccccc}
+						&                            & \multicolumn{2}{c}{C}      &       \\
+						& \multicolumn{1}{c|}{}      & S & \multicolumn{1}{c|}{F} & total \\ \cline{2-5} 
+						\multirow{2}{*}{P} & \multicolumn{1}{c|}{S}     & \color{red}0.6$\times$0.7 & \multicolumn{1}{c|}{\color{red}0.4$\times$0.4} & ?     \\
+						& \multicolumn{1}{c|}{F}     & ? & \multicolumn{1}{c|}{?} & ?     \\ \cline{2-5} 
+						& \multicolumn{1}{c|}{total} & \color{red}0.6 & \multicolumn{1}{c|}{\color{red}0.4} & 1    
+					\end{tabular}
+				\end{table}\\
+				\newpage
+				We have equalities for row-sum and column-sum. Therefore, we can get
+				\begin{table}[htb!]
+					\setlength{\tabcolsep}{8pt}
+					\renewcommand{\arraystretch}{2}
+					\centering
+					\begin{tabular}{ccccc}
+						&                            & \multicolumn{2}{c}{C}      &       \\
+						& \multicolumn{1}{c|}{}      & S & \multicolumn{1}{c|}{F} & total \\ \cline{2-5} 
+						\multirow{2}{*}{P} & \multicolumn{1}{c|}{S}     & 0.6$\times$0.7 & \multicolumn{1}{c|}{0.4$\times$0.4} & \color{red}$0.6\times0.7 + 0.4\times0.4 = 0.58$    \\
+						& \multicolumn{1}{c|}{F}     & \color{red}$0.6 - 0.6\times0.7 = 0.6\times0.3$ & \multicolumn{1}{c|}{\color{red}$0.4 - 0.4\times0.4 = 0.4\times0.6$} & ?     \\ \cline{2-5} 
+						& \multicolumn{1}{c|}{total} & 0.6 & \multicolumn{1}{c|}{0.4} & 1    
+					\end{tabular}
+				\end{table}\\
+				By the same way, we can fill remained cells.
+				\begin{table}[htb!]
+					\setlength{\tabcolsep}{15pt}
+					\renewcommand{\arraystretch}{2}
+					\centering
+					\begin{tabular}{ccccc}
+						&                            & \multicolumn{2}{c}{C}      &       \\
+						& \multicolumn{1}{c|}{}      & S & \multicolumn{1}{c|}{F} & total \\ \cline{2-5} 
+						\multirow{2}{*}{P} & \multicolumn{1}{c|}{S}     & 0.6$\times$0.7 & \multicolumn{1}{c|}{0.4$\times$0.4} & 0.58    \\
+						& \multicolumn{1}{c|}{F}     & $0.6\times0.3$ & \multicolumn{1}{c|}{$0.4\times0.6$} & \color{red}$0.6\times0.3 + 0.4\times0.6 = 0.42 = 1 - 0.58$     \\ \cline{2-5} 
+						& \multicolumn{1}{c|}{total} & 0.6 & \multicolumn{1}{c|}{0.4} & 1    
+					\end{tabular}
+				\end{table}\\
+		\end{itemize}
+		Here is brief explain.
+		\begin{itemize}
+			\item [] By the given information, we know that
+			\begin{itemize}
+				\item [\textbullet] $P(\mbox{success}) = 0.6$
+				\item [\textbullet] $P(\mbox{failure}) = 0.4$
+				\item [\textbullet] $P(\mbox{success}\cap\mbox{predict success}) = 0.6\times0.7$
+				\item [\textbullet] $P(\mbox{failure}\cap\mbox{predict success}) = 0.4\times0.4$
+			\end{itemize}
+			We want to find $P(\mbox{success} \mid\mbox{predict success})$.
+			\begin{align*}
+				& P(\mbox{success} \mid\mbox{predict success})\\
+				=\ & \frac{P(\mbox{success}\cap\mbox{predict success})}{P(\mbox{predict success})}\\
+				=\ & \frac{P(\mbox{success}\cap\mbox{predict success})}{P(\mbox{predict success}\cap\mbox{success}) + P(\mbox{predict success}\cap\mbox{failure})}\\
+				=\ & \frac{0.6\times0.7}{0.6\times0.7 + 0.4\times0.4}\\
+				=\ & \frac{42}{58}
+			\end{align*}
+		\end{itemize}
+	\end{proof}

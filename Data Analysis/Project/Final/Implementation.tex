@@ -1,0 +1,9 @@
+\section{Implementation}
+    This chapter introduces the simple design method. properties and values are not fixed and not perfect, just examples. It can be modified. This simulation performs the processes of particulate matter diffusion, generation, and reduction. We first choose $200\times300$ board size. Each cell has 3 states: \texttt{Wind}, \texttt{Dust}, and \texttt{Zone}. Each state plays the following roles:
+    \begin{itemize}
+        \item \texttt{Wind}: Fix the direction of the wind at the cell.
+        \item \texttt{Dust}: Manage the spread of particulate matter. The main interaction state.
+        \item \texttt{Zone}: Save the zone information and assign properties to the relevant cell.
+    \end{itemize}
+    Note that we fix the wind direction for convenience. For each cycle, particulate matters can spread to 9 ways: 8 ways to near cells, and 1 way to itself. Based on the direction, particulate matter spreads to 4 ways: left of the direction, right of the direction, that direction, and itself. Each way moves dusts with properties 0.2, 0.2, 0.3, and 0.3. For example, if a cell has 10 particulate matters and east wind, then the result after a cycle is 2 particulate matters at northeast, 2 particulate matters at southeast, 3 particulate matters at east, and 3 particulate matters at itself. If the particulate matter goes outside the board, it is deleted. Each particulate matter decreases by 5\% every 4 cycles.\\
+    We conclude only 3 zones: \texttt{sea}, \texttt{land}, and \texttt{factory}. \texttt{sea} and \texttt{land} assign the same properties. This division is just for the later development. \texttt{factory} gives the generation property. It produces $N(2500, \sqrt{2500})$ particulate matters every 2 cycles. We didn\textquotesingle t design other zones like dust reduction area, but they could be added as needed.

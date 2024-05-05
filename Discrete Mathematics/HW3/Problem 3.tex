@@ -1,0 +1,10 @@
+\section*{Problem 3}
+	\begin{proof}
+		Use the definition of Riemann integral for $f(t) = \frac{1}{t}$ between $[1, x]$. Let $P = \lbrace t_0, t_1, \cdots, t_n \rbrace$ be a uniform partition between $t_0 = 1$ and $t_n = x$. Let $\Delta t_i = t_i - t_{i - 1} = \frac{x - 1}{n}$ for $i = 1, 2, \cdots, n$. By the definition of \textit{Riemann integral}, $\sum\limits_{i = 1}^{n} m_i\Delta t_i \leq \int_{1}^{x} \frac{1}{t}\, dt \leq \sum\limits_{i = 1}^{n} M_i\Delta t_i$ where $m_i = \inf\limits_{t \in [t_{i - 1}, t_i]}f(t)$, $M_i = \sup\limits_{t \in [t_{i - 1}, t_i]}f(t)$. Since $f(t)$ is continuous and strictly decreasing function, $m_i = \frac{1}{t_i}$ and $M_i = \frac{1}{t_{i - 1}}$.\\
+		Take $x = n + 1$. Then $t_i = i + 1, \Delta t_i = 1$. It follows:
+		\begin{align*}
+			&\sum\limits_{i = 1}^{n} \frac{1}{i + 1} \leq \int_{1}^{n + 1} \frac{1}{t}\, dt = \ln{(n + 1)} \leq \sum\limits_{i = 1}^{n} \frac{1}{i}\\
+			\Rightarrow & \ln{(n + 1)} \leq \sum\limits_{i = 1}^{n} \frac{1}{i} = \sum\limits_{i = 1}^{n} \frac{1}{i + 1} + 1 - \frac{1}{n + 1} \leq \ln{(n + 1)} + 1 + 0\\
+			\Rightarrow & \sum\limits_{i = 1}^{n}\frac{1}{i} = \Theta(\lg n)
+		\end{align*}
+	\end{proof}

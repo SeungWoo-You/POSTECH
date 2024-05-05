@@ -1,0 +1,47 @@
+\section*{Problem 8}
+	\begin{proof} [Solution]
+		This is non-deterministic finite-state automata(NFA).
+		\begin{center}
+			\begin{tikzpicture}
+				[>=stealth', shorten >=1pt, auto, node distance=2.6cm, scale=1.4, transform shape]
+				\node[state,accepting] (s0) {$\sigma_0$};
+				\node[state] (s1) [right of=s0] {$\sigma_1$};
+				\node[state] (s2) [below of=s1] {$\sigma_2$};
+				\node[state] (s3) [left of=s2] {$\sigma_3$};
+				\node[state,initial] (empty) [below of=s3] {};
+				\path[->] (s0) edge [loop above] node [align=center] {$a$} (s0)
+				(s0) edge node [align=center] {$a$} (s3)
+				(s1) edge node [align=center] {$b$} (s0)
+				(s3) edge node [align=center] {$b$} (s1)
+				(s1) edge [bend right] node [align=center] {$b$} (s2)
+				(s2) edge [bend right] node [align=center] {$a$} (s1)
+				(s3) edge [loop left] node [align=center] {$b$} (s3)
+				(s2) edge [loop right] node [align=center] {$a$} (s2)
+				(empty) edge node [align=center] {$\lambda$} (s3)
+				(empty) edge node [align=center] {$\lambda$} (s2);
+			\end{tikzpicture}
+		\end{center}
+		Here, we use $\lambda$ transition. This means transit the input state to connected states without changing input value. Thus, the deterministic finite-state automata(DFA) is
+		\begin{center}
+			\begin{tikzpicture}
+				[>=stealth', shorten >=1pt, auto, node distance=2.6cm, scale=1.4, transform shape]
+				\node[state,initial] (s2s3) {$\sigma_2,\sigma_3$};
+				\node[state] (s1s3) [right of=s2s3] {$\sigma_1,\sigma_3$};
+				\node[state] (s1s2) [below of=s2s3] {$\sigma_1,\sigma_2$};
+				\node[state,accepting] (all) [right of=s1s3] {$\sigma_0,\sigma_1,\sigma_2,\sigma_3$};
+				\node[state] (empty) [right of=s1s2] {$\emptyset$};
+				\node[state,accepting] (s0s2) [right of=empty] {$\sigma_0,\sigma_2$};
+				\path[->] (s2s3) edge node [align=center] {$a$} (s1s2)
+				(s2s3) edge node [align=center] {$b$} (s1s3)
+				(s1s2) edge [loop left] node [align=center] {$a$} (s1s2)
+				(s1s2) edge [bend right, below] node [align=center] {$b$} (s0s2)
+				(s1s3) edge node [align=center] {$b$} (all)
+				(s0s2) edge node [align=center] {$a$} (all)
+				(s1s2) edge [loop left] node [align=center] {$a$} (s1s2)
+				(all) edge [loop right] node [align=center] {$a,b$} (all)
+				(empty) edge [loop left] node [align=center] {$a,b$} (empty)
+				(s1s3) edge node [align=center] {$a$} (empty)
+				(s0s2) edge [above] node [align=center] {$b$} (empty);
+			\end{tikzpicture}
+		\end{center}
+	\end{proof}

@@ -1,0 +1,14 @@
+\section*{Problem 10}
+	\begin{proof}
+		Note that regular language is closed under concatenation: [if $L_1$ and $L_2$ are regular languages, then $L_1L_2$ is a regular language]. Thus, $L^n$ is a regular language for $n\geq 1$. Also note that the kleene star notation is defined as $L^* = \{\epsilon\}\cup L\cup L^2\cup\cdots$, where $\epsilon$ is empty expression. Since regular language is closed under union, $L^*$ is a regular language(it is also true that regular language is closed under kleene star). The given language is the same as $L^*$, it is a regular.\\
+		{\color{cyan}\textbf{APPENDIX}}: It is useful to prove $L$ is a regular language. For regular language $L_1$ and $L_2$, followings are also regular(we say that closed under $\sim\sim$).
+		\begin{itemize}
+			\item $L_1\cup L_2$(union)
+			\item $L_1\cap L_2$(intersection)
+			\item $L_1L_2$(concatenation)
+			\item $\overline{L_1}$(complementation)
+			\item $L_1^*$(kleene star)
+			\item $L_1^R$(reverse)
+			\item $L_1/L_2$(right quotient)
+		\end{itemize}
+	\end{proof}

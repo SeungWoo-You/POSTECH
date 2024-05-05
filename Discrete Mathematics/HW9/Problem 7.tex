@@ -1,0 +1,9 @@
+\section*{Problem 7}
+	\begin{proof}
+		Let $T$ be a tree. Pick any $v\in T$ and paint it with a color $c_1$. Next, paint all the vertices adjecent to $v$ with a color $c_2$. Again, paint all the vertices adjecent to them using $c_1$. Continue this until the end. This gives an optimal solution. Because, if not, then there is a connection between odd-step colorings(WOLG). Specifically, there are two cases.
+		\begin{itemize}
+			\item Connected between nodes in the same step. Let $v_1$ and $v_2$ are connected in the same step. Then there is a cycle $v_1 - \cdots - v - \cdots - v_2 - v_1$, contradiction.
+			\item Connected between nodes in different (odd) steps. Let $v_1$ and $v_2$ are connected. Then there is a cycle $v_1 - \cdots - v - \cdots - v_2 - v_1$, contradiction.
+		\end{itemize}
+	{\color{cyan}\textbf{APPENDIX}}: This problem shows [Trees are bipartite graphs].\\
+	\end{proof}

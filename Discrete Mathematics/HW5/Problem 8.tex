@@ -1,0 +1,21 @@
+\section*{Problem 8}
+	\begin{proof} [Solution]
+		First, summarize the given information. Let S be a spam, N be a not spam, E be a word `enhancement', and H be a word `herbal'.
+		\begin{itemize}
+			\item The number of S = 10,000
+			\item The number of N = 5,000 
+			\item $P(\mbox{E} \mid \mbox{S}) = \frac{1,500}{10,000}$, $P(\mbox{E} \mid \mbox{N}) = \frac{20}{5,000}$
+			\item $P(\mbox{H} \mid \mbox{S}) = \frac{800}{10,000}$, $P(\mbox{H} \mid \mbox{N}) = \frac{200}{5,000}$
+		\end{itemize}
+		We want to find $P(\mbox{S} \mid \mbox{E, H})$
+		\begin{align*}
+			P(\mbox{S} \mid \mbox{E, H}) &= \frac{P(\mbox{E, H} \mid \mbox{S})\times P(\mbox{S})}{P(\mbox{E, H})}\\
+			P(\mbox{E, H} \mid \mbox{S}) &= P(\mbox{E} \mid \mbox{S}) \times P(\mbox{H} \mid \mbox{S})\\
+			P(\mbox{E, H}) &= P(\mbox{E, H}\mid \mbox{S})\times P(\mbox{S}) + P(\mbox{E, H}\mid \mbox{N})\times P(\mbox{N})\\
+			P(\mbox{E, H} \mid \mbox{N}) &= P(\mbox{E} \mid \mbox{N}) \times P(\mbox{H} \mid \mbox{N})
+		\end{align*}
+		By the given information, we get
+		\begin{align*}
+			P(\mbox{S} \mid \mbox{E, H}) \simeq \frac{0.008}{0.0080533} \simeq 99.33\%
+		\end{align*}
+	\end{proof}

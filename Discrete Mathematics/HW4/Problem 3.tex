@@ -1,0 +1,11 @@
+\section*{Problem 3}
+	\begin{proof} [Solution]
+		First, find the inverse of $e \mod(p - 1)(q - 1)$ where $n = pq$, $p$ and $q$ are primes. i.e. find $d$ such that $d\cdot e \equiv 1 \mod(p - 1)(q - 1)$. Here, $e = 13$, $p = 43$, $q = 59$, $(p - 1)(q - 1) = 2436$, $n = 2537$. We can use \textit{Euclid algorithm} because of the following:
+		\begin{align*}
+			&13d \equiv 1 \mod 2436\\
+			\Rightarrow\ & 13d = 2436k + 1 \mbox{ for some integer }k\\
+			\Rightarrow\ & 13d + 2436y = 1 = \gcd(13, 2436) \mbox{ for some integer }y
+		\end{align*}
+		Since RSA method always gives $gcd(e, (p - 1)(q - 1)) = 1$, you don\textquotesingle t have to show this step. Just run Euclid algorihm directly. Here, we get $d = 937$.\\
+		After finding $d$, decrypt $c_i$ similarly to the previous problem: [$m_i = c_i^d \mod n$]. Then $m_1 = c_1^{937} \mod 2537 = 1808$, $m_2 = c_2^{937} \mod 2537 = 1121$, $m_3 = c_3^{937} \mod 2537 = 417$. Since $n$ have 4 digits, match each $m_i$ to a 4-digit number and cut it by 2. Then $0667\ 1947\ 0671 \rightarrow 1808\ 1121\ 0417\ \rightarrow 18\ 08\ 11\ 21\ 04\ 17$. Therefore, the result is SILVER.\\
+	\end{proof}

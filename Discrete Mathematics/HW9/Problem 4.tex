@@ -1,0 +1,10 @@
+\section*{Problem 4}
+	\begin{enumerate}[(a)]
+		\item \begin{proof} [Solution]
+			Remove all leaf nodes until base-case. Then the remain is a center. Yellow tree has $c$, red tree has $e$ as a center. But note that the number of center can be one or two.\\
+		\end{proof}
+		\item \begin{proof}
+			Proof by (strong) induction. Let $T(k)$ be a tree with $k$ nodes. Consider $T(k = 1)$ and $T(k = 2)$. Note that it has 2 base-case because of the problem statement. Both cases satisfy the statement clearly, they themselves are centers.\\
+			Suppose $k = 1,2,\cdots,N$ is true. Consider $T(k=N+1)$. Note that $T(k\geq3)$ has at least one internal node. Remove all leaf nodes in $T(N+1)$. Then it is also a tree with $1\leq n\leq N$ nodes. By induction, $T(n)$ satisfies the statement. Add all leaf nodes to $T(n)$ while preserving the location, then it is $T(N+1)$ and has the same center as $T(n)$. Therefore, $T(N+1)$ also satisfies the statement.\\
+		\end{proof}
+	\end{enumerate}

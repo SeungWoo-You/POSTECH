@@ -1,0 +1,28 @@
+\section*{Problem 3}
+	\begin{enumerate} [(a)]
+		\item \begin{proof}
+			By the definition of \textit{full m-ary tree}, $m$ should satisfy $m \mid (81 - 1) = m \mid 80$.
+			\begin{equation*}
+				m = 1, 2, 4, 5, 8, 10, 16, 20, 40, 80
+			\end{equation*}
+			Consider the number of possible chunks. Let $r$ be the number of all chunks size of $m$. i.e. $r = \frac{N - 1}{m}$, where $N$ is the number of all nodes($N = 84$ in this problem). For a given height $h_i\geq1$, the chunks in that height range from 1 to $m^{h_i - 1}$(remember the definition of \textit{full m-ary tree}). So for the given maximum height $h$($=4$ in this problem),
+			\begin{align*}
+				& \sum\limits_{k=1}^h 1 \leq r \leq \sum\limits_{k=1}^h m^{k-1}\\
+				\Rightarrow\ & h \leq r=\frac{N - 1}{m} \leq \sum\limits_{k=1}^h m^{k-1}\\
+				\Rightarrow\ & mh \leq N - 1 \leq \sum\limits_{k=1}^h m^k
+			\end{align*}
+			By the above inequality, $m \neq 1, 2, 40, 80$. Therefore,
+			\begin{equation*}
+				m = 4, 5, 8, 10, 16, 20
+			\end{equation*}
+		\end{proof}
+		\item \begin{proof}
+			By the definition of \textit{balanced full m-ary tree}, all chuncks in height 1 to $h - 1$ should be filled and the last height can have the chuncks from 1 to $m^{h - 1}$. So the range is changed into
+			\begin{align*}
+				& \sum\limits_{k=1}^{h-1}m^{k-1} + 1 \leq r \leq \sum\limits_{k=1}^{h-1} m^{k-1} + m^{h-1}\\
+				\Rightarrow\ & \sum\limits_{k=1}^{h-1}m^{k-1} + 1 \leq r=\frac{N - 1}{m} \leq \sum\limits_{k=1}^h m^{k-1}\\
+				\Rightarrow\ & \sum\limits_{k=1}^{h-1}m^{k} + m \leq N - 1 \leq \sum\limits_{k=1}^h m^k
+			\end{align*}
+			But all of $m$ are impossible.\\
+		\end{proof}
+	\end{enumerate}

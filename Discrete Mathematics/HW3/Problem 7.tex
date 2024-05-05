@@ -1,0 +1,11 @@
+\section*{Problem 7}
+	\begin{proof} [Solution]
+		Since 5, 6, 7 are relatively prime, by the \textit{CRT}, $^{\exists!}x \in \mathbb{Z}_{5\times6\times7}$. Find 9($3\times3$) values:
+		\begin{itemize}
+			\item $a_i$: dividend value
+			\item $M_i$: product of divisors except the self divisor $m_i$. $M_i = \frac{m_1m_2\cdots m_n}{m_i}$
+			\item $y_i$: multiplicative inverse of $M_i \mod m_i$ 
+		\end{itemize}
+		$a_1 = 3$, $a_2 = 4$, $a_3 = 5$, $M_1 = \frac{5\cdot6\cdot7}{5} = 42$, $M_2 = \frac{5\cdot6\cdot7}{6} = 35$, $M_3 = \frac{5\cdot6\cdot7}{7} = 30$. Find any $y_i$ which satisfies $M_iy_i \equiv 1 \mod m_i$. $y_1 = 3$, $y_2 = 5$, $y_3 = 4$.\\
+		Therefore, $x \equiv \sum\limits_{i = 1}^{3}a_iM_iy_i = 1678 \equiv 208 \mod 210$.\\
+	\end{proof}

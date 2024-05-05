@@ -1,0 +1,31 @@
+\section*{Problem 3}
+	\begin{proof}
+		First, denote
+		\begin{equation*}
+			\left[P_0, P_1, \cdots, P_{k-1}, P_{k+1}, \cdots, P_n\right] = \widehat{\mathcal{P}}_k
+		\end{equation*}
+		By the definition of the map,
+		\begin{align}
+			\delta_{n-1}\circ\delta_n(\sigma^{n}) &= \delta_{n-1}\left(\delta_n(\sigma^{n})\right)\nonumber\\
+			&= \delta_{n-1}\left(\sum\limits_{i=0}^n(-1)^i\widehat{\mathcal{P}}_i\right)\nonumber\\
+			&= \sum\limits_{i=0}^n(-1)^i\delta_{n-1}\left(\widehat{\mathcal{P}}_i\right)\label{eq}
+		\end{align}
+		Here, we have
+		\begin{align}
+			\delta_{n-1}\left(\widehat{\mathcal{P}}_i\right) =
+			\begin{cases}
+				\sum\limits_{j=0}^{i-1} (-1)^j\widehat{\mathcal{P}}_{j, i} - \sum\limits_{j=i+1}^{n} (-1)^j\widehat{\mathcal{P}}_{i, j}, & \mbox{if }1\leq i\leq n-1 \\
+				-\sum\limits_{j=i+1}^{n} (-1)^j\widehat{\mathcal{P}}_{i, j}, & \mbox{if }i = 0\\
+				\sum\limits_{j=0}^{i-1} (-1)^j\widehat{\mathcal{P}}_{j, i}, & \mbox{ if } i = n
+			\end{cases} \label{sub_eq}
+		\end{align}
+		Note that $\widehat{\mathcal{P}}_{i, j}$ means there is a defect in $i$th and $j$th position with $i < j$. Put (\ref{sub_eq}) into (\ref{eq}). Then
+		\begin{align*}
+			\delta_{n-1}\circ\delta_n(\sigma^{n}) &= \sum\limits_{i=1}^{n}\sum\limits_{j=0}^{i-1} (-1)^{i+j}\widehat{\mathcal{P}}_{j, i} - \sum\limits_{i=0}^{n-1}\sum\limits_{j=i+1}^{n} (-1)^{i+j}\widehat{\mathcal{P}}_{i, j}
+		\end{align*}
+		For the second-term, we can switch the indices $i$ and $j$. This gives
+		\begin{align*}
+			\sum\limits_{i=0}^{n-1}\sum\limits_{j=i+1}^{n} (-1)^{i+j}\widehat{\mathcal{P}}_{i, j} = \sum\limits_{i=1}^{n}\sum\limits_{j=0}^{i-1} (-1)^{i+j}\widehat{\mathcal{P}}_{j, i}
+		\end{align*}
+		Therefore, $\delta_{n-1}\circ\delta_n(\sigma^{n}) = 0$.\\
+	\end{proof}

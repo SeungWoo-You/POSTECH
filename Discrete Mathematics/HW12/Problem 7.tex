@@ -1,0 +1,71 @@
+\section*{Problem 7}
+	\begin{enumerate} [(a)]
+		\item \begin{proof} [Solution]
+			\mbox{}\\
+			\begin{center}
+				\begin{tikzpicture}
+					[>=stealth', shorten >=1pt, auto, node distance=3cm, scale=1.5, transform shape]
+					\node[initial,state] (s0) {$\sigma_0$};
+					\node[state,accepting] (s1s2) [right of=s0] {$\sigma_1,\sigma_2$};
+					\node[state,accepting] (s0s2) [below of=s1s2] {$\sigma_0,\sigma_2$};
+					\node[state,accepting] (s1) [right of=s1s2] {$\sigma_1$};
+					\node[state] (empty) [below of=s0] {$\emptyset$};
+					\path[->] (s0) edge node [align=center] {$a$} (s1s2)
+					(s0) edge node [align=center] {$b$} (empty)
+					(empty) edge [loop left] node [align=center] {$a,b$} (empty)
+					(s1s2) edge node [align=center] {$a$} (s1)
+					(s1s2) edge [bend left] node [align=center] {$b$} (s0s2)
+					(s1) edge [loop above] node [align=center] {$a$} (s1)
+					(s1) edge node [align=center] {$b$} (s0s2)
+					(s0s2) edge [bend left] node [align=center] {$a$} (s1s2)
+					(s0s2) edge node [align=center] {$b$} (empty);
+				\end{tikzpicture}
+			\end{center}
+		\end{proof}
+		\item \begin{proof} [Solution]
+			\mbox{}\\
+			\begin{center}
+				\begin{tikzpicture}
+					[>=stealth', shorten >=1pt, auto, node distance=3cm, scale=1.5, transform shape]
+					\node[initial,state,accepting] (A) {A};
+					\node[state,accepting] (AC) [below of=A] {A,C};
+					\node[state] (B) [right of=A] {B};
+					\node[state,accepting] (BC) [right of=B] {B,C};
+					\node[state,accepting] (C) [below of=B] {C};
+					\node[state] (empty) [right of=C] {$\emptyset$};
+					\path[->] (A) edge node [align=center] {$a$} (AC)
+					(A) edge node [align=center] {$b$} (B)
+					(AC) edge [loop left] node [align=center] {$a$} (AC)
+					(AC) edge node [align=center] {$b$} (B)
+					(B) edge node [align=center] {$a$} (C)
+					(B) edge node [align=center] {$b$} (BC)
+					(BC) edge [loop right] node [align=center] {$b$} (BC)
+					(BC) edge node [align=center] {$a$} (C)
+					(C) edge node [align=center] {$a,b$} (empty)
+					(empty) edge [loop right] node [align=center] {$a,b$} (empty);
+				\end{tikzpicture}
+			\end{center}
+		\end{proof}
+		\newpage
+		\item \begin{proof} [Solution]
+			\mbox{}\\
+			\begin{center}
+				\begin{tikzpicture}
+					[>=stealth', shorten >=1pt, auto, node distance=3cm, scale=1.5, transform shape]
+					\node[initial,state] (s0) {$\sigma_0$};
+					\node[state] (s0s1) [right of=s0] {$\sigma_0,\sigma_1$};
+					\node[state] (s0s2) [below of=s0s1] {$\sigma_0,\sigma_2$};
+					\node[state,accepting] (s0s3) [right of=s0s2] {$\sigma_0,\sigma_3$};
+					\node[state] (empty) [right of=s0s1] {$\emptyset$};
+					\path[->] (s0) edge [loop below] node [align=center] {$a$} (s0)
+					(s0) edge node [align=center] {$b$} (s0s1)
+					(s0s1) edge node [align=center] {$a$} (s0s2)
+					(s0s1) edge node [align=center] {$b$} (empty)
+					(s0s2) edge node [align=center] {$a$} (s0)
+					(s0s2) edge node [align=center] {$b$} (s0s3)
+					(s0s3) edge [loop right] node [align=center] {$a,b$} (s0s3)
+					(empty) edge [loop right] node [align=center] {$a,b$} (empty);
+				\end{tikzpicture}
+			\end{center}
+		\end{proof}
+	\end{enumerate}

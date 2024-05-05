@@ -1,0 +1,34 @@
+\section*{Problem 1}
+	\begin{enumerate} [(a)]
+		\item \begin{proof}
+			Suppose some two of them are the same in $\mathbb{Z}_p$. i.e. assume $ma \equiv na \mod p$ for some $1 \leq m, n < p, m \neq n$.
+			\begin{align*}
+				&ma \equiv na \mod p\\
+				\Rightarrow\ & ma = kp + na \mbox{ for some integer }k\\
+				\Rightarrow\ & (m - n)a = kp
+			\end{align*}
+		Since $p \nmid a$, $p \mid (m - n)$. This gives $m \equiv n \mod p$. But since $1 \leq m, n < p$, $m = n$. Contradiction. Therefore, no two of them are the same in $\mathbb{Z}_p$.\\ 
+		\end{proof}
+		\item \begin{proof}
+			By the \textit{modulo multiplication},\\
+			\begin{align}
+				1a \cdot 2a \cdot \cdots \cdot (p - 1)a \mod p = \left[(1a \mod p) \cdot (2a \mod p) \cdot \cdots \cdot ((p - 1)a \mod p)\right] \mod p. \label{mod}
+			\end{align}
+			By (a), a total of $p - 1$ elements of the form $ma$ have different elements in $\mathbb{Z}_p$. i.e. if $m_1a \equiv n_1 \mod p, m_2a \equiv n_2 \mod p$ for $1 \leq m_1, m_2, n_1, n_2 < p$, then $n_1 \neq n_2$ if $m_1 \neq m_2$. Since $\left|\mathbb{Z}_p\right| = p - 1$, all elements in $\mathbb{Z}_p$ appears in RHS of (\ref{mod}). Therefore,
+			\begin{align*}
+				&1a \cdot 2a \cdot \cdots \cdot (p - 1)a \mod p = 1\cdot2\cdot\cdots\cdot(p - 1) \mod p\\
+				\Rightarrow\ & a^{p - 1}(p - 1)! \mod p = (p - 1)! \mod p
+			\end{align*}
+		\end{proof}
+		\item \begin{proof}
+			Note that $p \nmid k$ for $1 \leq k < p$ because $p$ is a prime. This gives $p \nmid (p - 1)!$. Then from (b),
+			\begin{align*}
+				&a^{p - 1}(p - 1)! \mod p = (p - 1)! \mod p\\
+				\Rightarrow\ & a^{p - 1}(p - 1)!  = kp + (p - 1)! \mbox{ for some integer }k\\
+				\Rightarrow\ & \left(a^{p - 1} - 1\right)(p - 1)! = kp\\
+				\Rightarrow\ & p \mid a^{p - 1}\\
+				\Rightarrow\ & \left(a^{p - 1} - 1\right) \equiv 0 \mod p\\
+				\Rightarrow\ & a^{p - 1} \equiv 1 \mod p
+			\end{align*}
+		\end{proof}
+	\end{enumerate}

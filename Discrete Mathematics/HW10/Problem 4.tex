@@ -1,0 +1,25 @@
+\section*{Problem 4}
+	\begin{enumerate} [(a)]
+		\item \begin{proof}
+			Proof by induction. Note that we need to find \textit{optimal vertex cover}. Denote the optimal vertex cover of a graph $G$ is $V^*(G)$. Let $P(j)$ be the statement: $\left|V^*(K_j)\right| = j - 1$. Consider $P(j=2)$. Then it is only a line, so just choose any one vertex. It is an optimal vertex cover, therefore $P(2)$ is true.\\
+			Suppose $P(j=n)$ is true. Consider $P(j=n+1)$. Remove one vertex(denote $u$) and its connected edges in $K_{n+1}$. Then the graph is $K_n$. By the induction hypothesis, it has $V^*(K_n)$ with size $n-1$. This means $K_n$ consists of:
+			\begin{itemize}
+				\item $n-1$ vertices which are in $V^*(K_n)$
+				\item 1 vertex(denote $v$) which is not in $V^*(K_n)$
+			\end{itemize}
+			Now, add $u$ and its edges to origin. Then we get $K_{n+1}$ with $n-1$ vertices in $V^*(K_{n+1})$. If $u$ is not in $V^*(K_{n+1})$, then there is the edge $(u, v)$ which does not satisfy the definition of \textit{vertex cover}. This implies $u\in V^*(K_{n+1})$. Therefore, $\left|V^*(K_{n+1})\right| = (n-1) + 1 = n$, true.\\
+		\end{proof}
+		\item \begin{proof}
+			Proof by induction. This problem is proved by the following:
+			\begin{itemize}
+				\item [] Show that $V^*(G) \leq n-1$ for any simple undirected (connected) graph $G$.
+			\end{itemize}
+			Similarly in (a), let $P(j)$ be the statement: $\left|V^*(G_n)\right|\leq n-1$. Note that $G_n$ means any graph with $n$ vertices. Consider $P(j=2)$. Then it is only a line, so $V^*(G_2)=1$. Therefore, $P(2)$ is true.\\
+			Suppose $P(j=n)$ is true. Consider $P(j=n+1)$. Remove one vertex(denote $u$) and its connected edges in $G_{n+1}$. Then the graph is a subgraph of $G_{n+1}$(denote $G_n$). By the induction hypothesis, it has $V^*(G_n)$ with size at most $n-1$. This means $G_n$ consists of:
+			\begin{itemize}
+				\item at most $n-1$ vertices which are in $V^*(G_n)$
+				\item at least 1 vertex which are not in $V^*(G_n)$
+			\end{itemize}
+			Now, add $u$ and its edges to origin. Then we get $G_{n+1}$ with at most $n-1$ vertices in $V^*(G_{n+1})$. Since there is at least 1 vertex which are not in $V^*(G_n)$, $u$ must in $V^*(G_{n+1})$. Therefore, $\left|V^*(G_{n+1})\right| \leq (n-1) + 1 = n$, true.\\
+		\end{proof}
+	\end{enumerate}

@@ -1,0 +1,11 @@
+\section*{Problem 9}
+	\begin{proof}
+		Assume $L$ is a regular language. Fix $m\in\mathbb{Z}^+$ and let $w=a^mba^m$. Then $w\in L$ with $|w|\geq m$. By \textit{Pumping lemma}, $w=xyz$ with $|y|\geq 1$, $|xy|\leq m$, and $w_i=xy^iz\in L$ for $^\forall i\geq0$.\\
+		Since $|xy|\leq m$ and w starts with $a^m$, $y$ consists of only $a$. Let $|y|=k$ where $1\leq k\leq m$. Then $w_0 = a^{m-k}ba^m$. But $w_0\not\in L$. This contradicts to the first assumption. Therefore, $L$ is not a regular language.\\
+		{\color{orange} \textbf{WARNING}}: You use \textit{Pumping lemma} only to prove $L$ is not a regular language, {\color{red}NOT to prove} $L$ is a regular language. Also, {\color{red}the division form should not be fixed}. This lemma does not tell the form. It means, if you claim that the statement is false because one of the $xyz$ form does not satisfy \textit{Pumping lemma}, then you will get 0 point. Therefore, if you want to use \textit{Pumping lemma}, then use the following strategy:
+		\begin{itemize}
+			\item Choose any $w\in L$ with $|w| \geq m$. This choice does not deduct your points.
+			\item Choose any $i$ what you want or easy to prove. Its value does not have to be fixed to one value.
+			\item Show that for any division form $xyz$, $w_i\not\in L$ with your choice of $w$ and $i$.
+		\end{itemize}
+	\end{proof}

@@ -1,0 +1,61 @@
+\section*{Problem 2}
+	\begin{proof}
+		Define a set of $k$-simplex be $\Sigma_k$. First, consider $X$. We need $k=0,1,2$.
+		\begin{align*}
+			\Sigma_0 &= \{[x_0], [x_1], [x_2], [x_3], [x_4]\}\\
+			\Sigma_1 &= \{[x_0,x_1], [x_1,x_2], [x_0,x_2], [x_2,x_3], [x_2,x_4], [x_3,x_4]\}\\
+			\Sigma_2 &= \emptyset
+		\end{align*}
+		Since there is only one graph, $\beta_0 = 1$. For $\beta_1$, define the first chain module $C_1$. for $\sigma\in C_1$,
+		\begin{align*}
+			\begin{multlined}[t]
+				\sigma = t_1[x_0, x_1] + t_2[x_0,x_2] + t_3[x_1,x_2]\\
+				+ t_4[x_2,x_3] + t_5[x_2,x_4] + t_6[x_3,x_4] \quad\mbox{ for } t_i\in \{0, 1\}
+			\end{multlined}
+		\end{align*}
+		By the boundary operator $\partial_1$, we get
+		\begin{align*}
+			\partial_1\sigma &= \begin{multlined}[t]
+				t_1([x_0]+[x_1]) + t_2([x_0]+[x_2]) + t_3([x_1]+[x_2])\\
+				+ t_4([x_2]+[x_3]) + t_5([x_2]+[x_4]) + t_6([x_3]+[x_4])
+			\end{multlined}\\
+			&= \begin{multlined}[t]
+				(t_1+t_2)[x_0] + (t_1+t_3)[x_1] + (t_2+t_3+t_4+t_5)[x_2]\\
+				+ (t_4+t_6)[x_3] + (t_5+t_6)[x_4]
+			\end{multlined}
+		\end{align*}
+		Find solutions for $t_i$. This means we need to solve the below matrix equation:
+		\begin{equation*}
+			\begin{bmatrix} 
+				1 & 1 & 0 & 0 & 0 & 0 \\
+				1 & 0 & 1 & 0 & 0 & 0 \\
+				0 & 1 & 1 & 1 & 1 & 0 \\
+				0 & 0 & 0 & 1 & 0 & 1 \\
+				0 & 0 & 0 & 0 & 1 & 1
+			\end{bmatrix}
+			\begin{bmatrix} 
+				t_1 \\
+				t_2 \\
+				t_3 \\
+				t_4 \\
+				t_5 \\
+				t_6
+			\end{bmatrix} = 
+			\begin{bmatrix} 
+				0 \\
+				0 \\
+				0 \\
+				0 \\
+				0
+			\end{bmatrix}
+		\end{equation*}
+		From this, we get
+		\begin{equation*}
+			\begin{multlined}[t]
+				\sigma = t_1([x_0, x_1] + [x_0,x_2] + [x_1,x_2])\\
+				+ t_4([x_2,x_3] + [x_2,x_4] + [x_3,x_4])
+			\end{multlined}
+		\end{equation*}
+		This means there are 2 cycles: $x_0-x_1-x_2$ and $x_2-x_3-x_4$. Since $\Sigma_2=\emptyset$, we have no plane. Therefore, $\beta_1 = 2 - 0 = 2$.\\
+		Similarly, for $Y$, $\beta_0 = 1$. But $Y$ has $\Sigma_2=\{[x_2,x_3,x_4]\}$. This means there is a plane $x_2-x_3-x_4$. Therefore, $\beta_1 = 2 - 1 = 1$.\\
+	\end{proof}

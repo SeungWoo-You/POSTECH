@@ -1,0 +1,20 @@
+\section*{Problem 1}
+	\begin{enumerate} [(a)]
+		\item 
+		\begin{proof} [Solution]
+			Let total excution be $T(n)$. Then $T(n) = \sum\limits_{i = 1}^n\sum\limits_{j = 1}^i\sum\limits_{k = 1}^j 1 = \sum\limits_{i = 1}^n\sum\limits_{j = 1}^i j = \sum\limits_{i = 1}^n \frac{i(i + 1)}{2}$. Note that $\frac{i^2}{2} \leq \frac{i(i + 1)}{2} = \frac{i^2 + i}{2} \leq = \frac{i^2 + i^2}{2} = i^2$ for $^\forall i \in \mathbb{N}$. This follows $\sum\limits_{i = 1}^n \frac{i^2}{2} \leq \sum\limits_{i = 1}^n\frac{i(i + 1)}{2} = T(n) \leq \sum\limits_{i = 1}^n i^2$. Since $\sum\limits_{i = 1}^n i^2 = \frac{n(n + 1)(2n + 1)}{6}$, $T(n) = \Theta(n^3)$.\\
+		\end{proof}
+		\item 
+		\begin{proof} [Solution]
+			Let total excution be $T(n)$. Then $T(n) = n + \lfloor \frac{n}{3} \rfloor + \lfloor \frac{\lfloor \frac{n}{3} \rfloor}{3} \rfloor + \cdots + 1$.
+			\begin{enumerate} [i)]
+				\item If $n = 3^k$ for $k = 0, 1, \cdots$, then $T(n) = 3^k + 3^{k - 1} + \cdots + 3 + 1 = \sum\limits_{i = 0}^{k} 3^i = \frac{3^{k + 1} - 1}{2} = \frac{3\cdot3^k - 1}{2} = \frac{3n - 1}{2}$. Therefore, $T(n) = \Theta(n)$.
+				\item If $n = 3^k + C$ with $0 < C < 2\cdot3^k$ for $k = 1, 2, \cdots$, then $\sum\limits_{i = 0}^{k} 3^i \leq T(n) \leq \sum\limits_{i = 0}^{k + 1} 3^i$ from i). So we get $\frac{3n - 1}{2} \leq T(n) \leq \frac{9n - 1}{2}$, $T(n) = \Theta(n)$.
+			\end{enumerate}
+			For any $n \in \mathbb{Z}^+$, we get $T(n) = \Theta(n)$.\\
+		\end{proof}
+		\item 
+		\begin{proof} [Solution]
+			Let total excution be $T(n)$ and $I_j$ be the value of $i$ at $j$th iteration. Then by the \textit{Archimedean Property}, $^\exists k$ such that $I_k < n \leq I_{k + 1}$. It means $T(n) = k$. Note that the recursive relation $I_{k + 1} = I_k^2$. By solving this, we get $I_{k + 1} = I_1^{2^{k}} = 2^{2^{k}}$. So $2^{2^{k - 1}} < n \leq 2^{2^{k}}$. From left inequality, $k < \lg{(\lg n)} + 1$. From right inequality, $\lg{(\lg n)} \leq k$. Since $T(n) = k$, $T(n) = \Theta(\lg{(\lg n)})$.\\
+		\end{proof}
+	\end{enumerate}

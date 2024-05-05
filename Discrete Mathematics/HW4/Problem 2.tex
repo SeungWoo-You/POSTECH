@@ -1,0 +1,4 @@
+\section*{Problem 2}
+	\begin{proof} [Solution]
+		Use the given encoding rule: A $\rightarrow 00$, B $\rightarrow 01$, $\cdots$, Z $\rightarrow 25$. Then UPLOAD $\rightarrow 20\ 15\ 10\ 14\ 00\ 03$. Since $n = 3233$ which have 4 digits,  divide the code into 4 digits. Then UPLOAD $\rightarrow 2015\ 1014\ 0003$. Let $m_1 = 2015, m_2 = 1014, m_3 = 0003$. Encrypt each block by the \textit{RSA method}: [$c_i = m_i^e \mod n$]. Then we get $c_1 = m_1^{17} \mod 3233 = 2545$, $c_2 = m_2^{17} \mod 3233 = 37$, $c_3 = m_3^{17} \mod 3233 = 1211$. Therefore, the result is $2545\ 0037\ 1211$. Note that you have to write each $c_i$ in 4-digit like 0037 instead 37.\\
+	\end{proof}

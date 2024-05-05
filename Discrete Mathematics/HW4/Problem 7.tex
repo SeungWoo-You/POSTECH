@@ -1,0 +1,13 @@
+\section*{Problem 7}
+	\begin{proof}
+		First, note that $_{n}\mathrm{C}_{k} = C(n, k) = {n \choose k}$. I use the notation $_{n}\mathrm{C}_{k}$.\\
+		The string has $k$ 0\textquotesingle s and $n - k$ 1\textquotesingle s. List the 1\textquotesingle s in a row.
+		\begin{align*}
+			\underbrace{1\qquad 1\qquad 1\qquad \cdots\qquad 1}_{\mbox{total } n - k \mbox{ 1\textquotesingle s}}
+		\end{align*}
+		There are a total of $n - k + 1$ places where you can place 0\textquotesingle s(red spots in below).
+		\begin{align*}
+			\underbrace{{\color{red}\bullet}\quad1\quad{\color{red}\bullet}\quad1\quad{\color{red}\bullet}\quad\cdots\quad{\color{red}\bullet}\quad1\quad{\color{red}\bullet}}_{\mbox{total } n - k \mbox{ 1\textquotesingle s and } n - k + 1\ {\color{red}\bullet}\mbox{\textquotesingle s}}
+		\end{align*}
+		Choose ${k\ \color{red}\bullet}$\textquotesingle s among $(n - k + 1)\ {\color{red}\bullet}$\textquotesingle s and put 0. This is the total number of cases, $_{n- k + 1}\mathrm{C}_{k}.$\\
+	\end{proof}

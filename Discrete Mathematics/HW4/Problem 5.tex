@@ -1,0 +1,29 @@
+\section*{Problem 5}
+	\begin{proof}
+		Proof by (strong) induction. Let the given statement be $P(j = m)$. Consider $P(j = 1)$. Then $(x_1)^n = \sum\limits_{n_1 = n}\frac{n!}{n_1!}x_1^{n_1}$ is true, because $\sum\limits_{n_1 = n} \Leftrightarrow n_1 = n$(There is only one case).\\
+		Suppose $P(j)$ is true for $j \leq m$. Consider $P(j = m + 1)$. Note that the notation of $x$ does not matter.
+		\begin{align*}
+			& (x_1 + x_2 + \cdots + x_{m - 1} + x_{k_1} + x_{k_2})^n\\
+			=\ & \left(x_1 + x_2 + \cdots + x_{m - 1} + (x_{k_1} + x_{k_2})\right)^n\\
+			=\ & (x_1 + x_2 + \cdots + x_{m - 1} + x_k)^n\qquad \mbox{where }x_k = x_{k_1} + x_{k_2}\\
+			=\ & \sum\limits_{n_1 + n_2 + \cdots + n_{m - 1} + n_k = n}\frac{n!}{n_1!n_2!\cdots n_{m - 1}!n_k!}x_1^{n_1}x_2^{n_2}\cdots x_{m - 1}^{n_{m - 1}}x_k^{n_k}
+		\end{align*}
+		Denote $\mu = n_1 + n_2 + \cdots + n_{m - 1} + n_k$ and $C = \frac{n!}{n_1!n_2!\cdots n_{m - 1}!n_k!}x_1^{n_1}x_2^{n_2}\cdots x_{m - 1}^{n_{m - 1}}$.
+		\begin{align*}
+			\Rightarrow\ & \sum\limits_{\mu = n}C(x_k)^{n_k}\\
+			=\ & \sum\limits_{\mu = n}C(x_{k_1} + x_{k_2})^{n_k}\\
+			=\ & \sum\limits_{\mu = n}C\left[\sum\limits_{n_{k_1} + n_{k_2} = n_k}\frac{n_k!}{n_{k_1}!n_{k_2}!}x_{k_1}^{n_{k_1}}x_{k_2}^{n_{k_2}}\right]
+		\end{align*}
+		Since $C$ is independent to $k_1$ and $k_2$, it is constant related to inner $\sum$. Put $C$ into inner $\sum$.
+		\begin{align*}
+			\Rightarrow\ & \sum\limits_{\mu = n}\left[\sum\limits_{n_{k_1} + n_{k_2} = n_k}C\frac{n_k!}{n_{k_1}!n_{k_2}!}x_{k_1}^{n_{k_1}}x_{k_2}^{n_{k_2}}\right]\\
+			=\ & \sum\limits_{\mu = n}\left[\sum\limits_{n_{k_1} + n_{k_2} = n_k}\frac{n!}{n_1!n_2!\cdots n_{m - 1}!\not n_k!}x_1^{n_1}x_2^{n_2}\cdots x_{m - 1}^{n_{m - 1}}\frac{\not n_k!}{n_{k_1}!n_{k_2}!}x_{k_1}^{n_{k_1}}x_{k_2}^{n_{k_2}}\right]\\
+			=\ & \sum\limits_{\mu = n}\left[\sum\limits_{n_{k_1} + n_{k_2} = n_k}\frac{n!}{n_1!n_2!\cdots n_{m - 1}!n_{k_1}!n_{k_2}!}x_1^{n_1}x_2^{n_2}\cdots x_{m - 1}^{n_{m - 1}}x_{k_1}^{n_{k_1}}x_{k_2}^{n_{k_2}}\right]\\
+			=\ & \sum\limits_{n_1 + n_2 + \cdots + n_{m - 1} + n_k = n}\left[\sum\limits_{n_{k_1} + n_{k_2} = n_k}\frac{n!}{n_1!n_2!\cdots n_{m - 1}!n_{k_1}!n_{k_2}!}x_1^{n_1}x_2^{n_2}\cdots x_{m - 1}^{n_{m - 1}}x_{k_1}^{n_{k_1}}x_{k_2}^{n_{k_2}}\right]
+		\end{align*}
+		Here, the caculation order is $\left[\mbox{outer }\sum \rightarrow \mbox{ inner }\sum\right]$. This means $n_k$ is selected at outer $\sum$ at first and then $n_{k_1}$ and $n_{k_2}$ is selected at inner $\sum$. In this process, the inner formula does not effected, just related to selection of all $n_i$. Therefore, we can merge two $\sum$ by putting $n_k = n_{k_1} + n_{k_2}$.
+		\begin{align*}
+			\Rightarrow\ & \sum\limits_{n_1 + n_2 + \cdots + n_{m - 1} + [n_{k_1} + n_{k_2}] = n}\frac{n!}{n_1!n_2!\cdots n_{m - 1}!n_{k_1}!n_{k_2}!}x_1^{n_1}x_2^{n_2}\cdots x_{m - 1}^{n_{m - 1}}x_{k_1}^{n_{k_1}}x_{k_2}^{n_{k_2}}
+		\end{align*}
+		Replace $k_1 = m$ and $k_2 =  m + 1$, then we get the desired equation.\\
+	\end{proof}

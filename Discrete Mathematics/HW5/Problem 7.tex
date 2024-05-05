@@ -1,0 +1,68 @@
+\section*{Problem 7}
+	For this problem, I use the table method for explain. But you should explain like the \hyperref[APPENDIX]{APPENDIX in Problem 6}(but do not need to expain how to make such table). The given statement makes the below table. Y is a bicycle, C is a car, B is a bus, E is an early, and L is a late.
+	\begin{table}[htb!]
+		\setlength{\tabcolsep}{10pt}
+		\renewcommand{\arraystretch}{2}
+		\centering
+		\begin{tabular}{c|ccc|c}
+			& Y               & C              & B              & total \\ \hline
+			E     & ?               & ?              & ?              & ?     \\
+			L     & $x_1\times0.05$ & $x_2\times0.5$ & $x_3\times0.2$ & ?     \\ \hline
+			total & $x_1$           & $x_2$          & $x_3$          & 1    
+		\end{tabular}
+	\end{table}\\
+	Also, we can fill other cells.
+	\begin{table}[htb!]
+		\setlength{\tabcolsep}{10pt}
+		\renewcommand{\arraystretch}{2}
+		\centering
+		\begin{tabular}{c|ccc|c}
+			& Y               & C              & B              & total \\ \hline
+			E     & $x_1\times0.95$ & $x_2\times0.5$ & $x_3\times0.8$ & $\sum$     \\
+			L     & $x_1\times0.05$ & $x_2\times0.5$ & $x_3\times0.2$ & $\sum$     \\ \hline
+			total & $x_1$           & $x_2$          & $x_3$          & 1    
+		\end{tabular}
+	\end{table}\\
+	\begin{enumerate} [(a)]
+		\item \begin{proof} [Solution]
+			The given information is $x_1 = x_2 = x_3 = \frac{1}{3}$.
+			\begin{table}[htb!]
+				\setlength{\tabcolsep}{10pt}
+				\renewcommand{\arraystretch}{2}
+				\centering
+				\begin{tabular}{c|ccc|c}
+					& Y               & C              & B              & total \\ \hline
+					E     & $\frac{1}{3}\times0.95$ & $\frac{1}{3}\times0.5$ & $\frac{1}{3}\times0.8$ & $\frac{1}{3}\times2.25$     \\
+					L     & $\frac{1}{3}\times0.05$ & $\frac{1}{3}\times0.5$ & $\frac{1}{3}\times0.2$ & $\frac{1}{3}\times0.75$     \\ \hline
+					total & $\frac{1}{3}$           & $\frac{1}{3}$          & $\frac{1}{3}$          & 1    
+				\end{tabular}
+			\end{table}\\
+			We want to find $P(\mbox{C}\mid \mbox{L})$.
+			\begin{align*}
+				& P(\mbox{C}\mid \mbox{L})\\
+				=\ & \frac{P(\mbox{L}\cap\mbox{C})}{P(\mbox{L})}\\
+				=\ & \frac{\frac{1}{3}\times0.5}{\frac{1}{3}\times0.75} = \frac{2}{3}
+			\end{align*}
+		\end{proof}
+		\newpage
+		\item \begin{proof} [Solution]
+			The given information is $x_1 = 0.6, x_2 = 0.3, x_3 = 0.1$.
+			\begin{table}[htb!]
+				\setlength{\tabcolsep}{10pt}
+				\renewcommand{\arraystretch}{2}
+				\centering
+				\begin{tabular}{c|ccc|c}
+					& Y               & C              & B              & total \\ \hline
+					E     & $0.6\times0.95$ & $0.3\times0.5$ & $0.1\times0.8$ & $0.8$     \\
+					L     & $0.6\times0.05$ & $0.3\times0.5$ & $0.1\times0.2$ & $0.2$     \\ \hline
+					total & $0.6$           & $0.3$          & $0.1$          & 1    
+				\end{tabular}
+			\end{table}\\
+			We want to find $P(\mbox{C}\mid \mbox{L})$.
+			\begin{align*}
+				& P(\mbox{C}\mid \mbox{L})\\
+				=\ & \frac{P(\mbox{L}\cap\mbox{C})}{P(\mbox{L})}\\
+				=\ & \frac{0.15}{0.2} = \frac{3}{4}
+			\end{align*}
+		\end{proof}
+	\end{enumerate}

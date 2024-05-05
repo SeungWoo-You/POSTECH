@@ -1,0 +1,31 @@
+\section*{Problem 8}
+	\begin{proof}
+		The biggest digits of a number is 7, but it is only one case: 1,000,000. This number does not satisfy the desired statement. Therefore, just consider 1 to 999,999. The biggest digits of a number is 6. Let each digits be $a_1, a_2, \cdots, a_6$. i.e. $12345 = 012345 \rightarrow a_1 = 0, a_2 = 1, a_3 = 2, a_4 = 3, a_5 = 4, a_6 = 5$. Initialize them to 0. We want to make them satisfy the formula below.
+		\begin{equation*}
+			a_1 + a_2 + a_3 + a_4 + a_5 + a_6 = 15
+		\end{equation*}
+		Use the following algorithm:
+		\begin{enumerate} [1)]
+			\item Choose one of $a_i$, and $a_i = a_i + 1$
+			\item Repeat 1) 15 times.
+		\end{enumerate}
+		If we list them after this process, the number satisfies the given statement if all $0\leq a_i\leq 9$. This cases are total $_{6}\mathrm{H}_{15} = {_{6 + 15 - 1}\mathrm{C}_{6 - 1}} = {_{20}\mathrm{C}_{5}}$. But it contains some $a_i \geq 10$. We need to discard this.\\
+		Suppose one $a_j \geq 10$. Then since $\sum\limits_{i\mbox{ in others}} a_i = 15 - a_j < 10$, others cannot be greater than 10. Therefore, just choose one of them and consider it as greater than or equal to 10. For that element, we have total 6 impossible numbers: $10, 11, 12, 13, 14, 15$. Calculate them case-by-case. For example, WLOG, suppose $a_6 = 10$. Then $a_1 + a_2 + \cdots + a_5 = 15 - a_6 = 5$. This cases are $_{5}\mathrm{H}_{5}$. If $a_6 = 11$, then $a_1 + a_2 + \cdots + a_5 = 15 - a_6 = 4$, so $_{5}\mathrm{H}_{4}$. Continue this, then we get $\sum\limits_{k = 10}^{15}{_{5}\mathrm{H}_{15 - k}}$ if $a_6 = 10, 11, 12, \cdots, 15$. There are a total of $_{6}\mathrm{C}_{1} = 6$ choices for the way to choose $a_6$ position: $a_1, a_2, \cdots, a_6$. Therefore, total impossible cases are $6\sum\limits_{k = 10}^{15}{_{5}\mathrm{H}_{15 - k}}$.\\
+		{\color{cyan}\textbf{APPENDIX}}: it is allowed to write up to this, but it is better to calculate $\sum\limits_{k = 10}^{15}{_{5}\mathrm{H}_{15 - k}}$.
+		\begin{align*}
+			& \sum\limits_{k = 10}^{15}{_{5}\mathrm{H}_{15 - k}}\\
+			=\ & _{5}\mathrm{H}_{5} + {_{5}\mathrm{H}_{4}} + \cdots + {_{5}\mathrm{H}_{0}}\\
+			=\ & _{5 + 5 - 1}\mathrm{C}_{5 - 1} + {_{5 + 4 - 1}\mathrm{C}_{5 - 1}} + \cdots + {_{5 + 0 - 1}\mathrm{C}_{5 - 1}}\\
+			=\ & _{9}\mathrm{C}_{4} + {_{8}\mathrm{C}_{4}} + \cdots + {_{4}\mathrm{C}_{4}}\\
+			=\ & _{9}\mathrm{C}_{4} + {_{8}\mathrm{C}_{4}} + \cdots + {_{5}\mathrm{C}_{4}} + {_{5}\mathrm{C}_{5}}
+		\end{align*}
+		By the \textit{Pascal\textquotesingle s rule}: $\left[{_{n}\mathrm{C}_{r}} + {_{n}\mathrm{C}_{r + 1}} = {_{n + 1}\mathrm{C}_{r + 1}}\right]$, that expression can be compressed.
+		\begin{align*}
+			\Rightarrow\ & _{9}\mathrm{C}_{4} + {_{8}\mathrm{C}_{4}} + \cdots + {_{5}\mathrm{C}_{4}} + {_{5}\mathrm{C}_{5}}\\
+			=\ & _{9}\mathrm{C}_{4} + {_{8}\mathrm{C}_{4}} + {_{7}\mathrm{C}_{4}} + {_{6}\mathrm{C}_{4}} + {_{6}\mathrm{C}_{5}}\\
+			=\ & _{9}\mathrm{C}_{4} + {_{8}\mathrm{C}_{4}} + {_{7}\mathrm{C}_{4}} + {_{7}\mathrm{C}_{5}}\\
+			=\ & \cdots = {_{9}\mathrm{C}_{4}} + {_{9}\mathrm{C}_{5}}\\
+			=\ & _{10}\mathrm{C}_{5}
+		\end{align*}
+		Therefore, the result is $_{20}\mathrm{C}_{5} - 6\cdot{_{10}\mathrm{C}_{5}} = 13992$.\\
+	\end{proof}
